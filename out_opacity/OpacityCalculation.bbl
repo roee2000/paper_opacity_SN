@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{urilight1}
+Y.~Elbaz, et~al., Urilight: A new code for radiation transport in supernovae,
+  arXiv preprint arXiv:1711.00969 (2017).
+\newblock \href {http://arxiv.org/abs/1711.00969} {\path{arXiv:1711.00969}}.
+
+\bibitem{urilight2}
+Y.~Elbaz, et~al., Urilight: Radiation transport code for supernovae, arXiv
+  preprint arXiv:1805.06907 (2018).
+\newblock \href {http://arxiv.org/abs/1805.06907} {\path{arXiv:1805.06907}}.
+
+\end{thebibliography}
