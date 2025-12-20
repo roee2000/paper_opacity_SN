@@ -5,6 +5,9 @@
 \expandafter\ifx\csname href\endcsname\relax
   \def\href#1#2{#2} \def\path#1{#1}\fi
 
+\bibitem{kurucz1995}
+R.~L. Kurucz, B.~Bell, Atomic line list (1995).
+
 \bibitem{urilight1}
 Y.~Elbaz, et~al., Urilight: A new code for radiation transport in supernovae,
   arXiv preprint arXiv:1711.00969 (2017).
