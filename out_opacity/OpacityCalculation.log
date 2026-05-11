@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.23)  20 DEC 2025 16:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.23)  11 MAY 2026 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -218,78 +218,187 @@ LaTeX Info: Redefining \Relbar on input line 970.
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 12
-.
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
 
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/psnfss/t1ptm.fd
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.
+sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/gettitlestring/gettitlestr
+ing.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count294
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen166
+\Hy@linkcounter=\count295
+\Hy@pagecounter=\count296
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count297
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `final' set `true' on input line 4040.
+Package hyperref Info: Option `colorlinks' set `true' on input line 4040.
+Package hyperref Info: Hyper figures OFF on input line 4157.
+Package hyperref Info: Link nesting OFF on input line 4162.
+Package hyperref Info: Hyper index ON on input line 4165.
+Package hyperref Info: Plain pages OFF on input line 4172.
+Package hyperref Info: Backreferencing OFF on input line 4177.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4424.
+\c@Hy@tempcnt=\count298
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen167
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count299
+\Field@Width=\dimen168
+\Fld@charsize=\dimen169
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring ON on input line 6060.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count300
+\c@Item=\count301
+\c@Hfootnote=\count302
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2024-11-05 v7.01l Hyperref driver for pdfTeX
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count303
+\c@bookmark@seq@number=\count304
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilechec
+k.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/uniquecounter/uniquecounte
+r.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
+)
+\Hy@SectionHShift=\skip59
+)
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 21
+.
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (out_opacity/OpacityCalculation.aux)
 \openout1 = `OpacityCalculation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count294
-\scratchdimen=\dimen166
+\scratchcounter=\count305
+\scratchdimen=\dimen170
 \scratchbox=\box61
-\nofMPsegments=\count295
-\nofMParguments=\count296
+\nofMPsegments=\count306
+\nofMParguments=\count307
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count297
-\MPscratchDim=\dimen167
-\MPnumerator=\count298
-\makeMPintoPDFobject=\count299
+\MPscratchCnt=\count308
+\MPscratchDim=\dimen171
+\MPnumerator=\count309
+\makeMPintoPDFobject=\count310
 \everyMPtoPDFconversion=\toks28
 )
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.s
 ty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
- (/usr/local/texlive/2025basic/texmf-dist/tex/generic/infwarerr/infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.
-sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-))
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-))
-(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
-)
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
@@ -331,18 +440,34 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2024/06/23 v1.3e Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+Package hyperref Info: Link coloring ON on input line 21.
+
+(out_opacity/OpacityCalculation.out) (out_opacity/OpacityCalculation.out)
+\@outlinefile=\write4
+\openout4 = `OpacityCalculation.out'.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
+
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
 7.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd
@@ -350,6 +475,49 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
 
+Underfull \vbox (badness 3919) has occurred while \output is active []
+
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 121.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 121.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 121.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 121.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\cnotenum' on input line 121.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 121.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@corref' on input line 121.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 121.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 121.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 121.
 
 [1{/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/
 usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/base/8r.enc}
@@ -357,175 +525,177 @@ usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 {/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
 
-<figs/kappa_smoothed_vs_raw.png, id=21, 425.9112pt x 281.853pt>
-File: figs/kappa_smoothed_vs_raw.png Graphic file (type png)
-<use figs/kappa_smoothed_vs_raw.png>
-Package pdftex.def Info: figs/kappa_smoothed_vs_raw.png  used on input line 187
-.
-(pdftex.def)             Requested size: 250.55777pt x 165.81013pt.
-<figs/kappa_smoothed_vs_raw_error.png, id=23, 425.9112pt x 280.8894pt>
-File: figs/kappa_smoothed_vs_raw_error.png Graphic file (type png)
-<use figs/kappa_smoothed_vs_raw_error.png>
-Package pdftex.def Info: figs/kappa_smoothed_vs_raw_error.png  used on input li
-ne 188.
-(pdftex.def)             Requested size: 250.55777pt x 165.24327pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figs/convergence_Fe_rho3.00e-12_t10.0days.png, id=24, 499.1448pt x 354.6048pt>
-
-File: figs/convergence_Fe_rho3.00e-12_t10.0days.png Graphic file (type png)
-<use figs/convergence_Fe_rho3.00e-12_t10.0days.png>
-Package pdftex.def Info: figs/convergence_Fe_rho3.00e-12_t10.0days.png  used on
- input line 209.
-(pdftex.def)             Requested size: 250.55777pt x 177.99994pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 
 
 [2]
-
-<figs/opac_map_rho_T/t_1days.png, id=30, 500.1084pt x 353.6412pt>
-File: figs/opac_map_rho_T/t_1days.png Graphic file (type png)
-<use figs/opac_map_rho_T/t_1days.png>
-Package pdftex.def Info: figs/opac_map_rho_T/t_1days.png  used on input line 25
-0.
-(pdftex.def)             Requested size: 261.0pt x 184.56358pt.
-<figs/opac_map_rho_T/t_10days.png, id=31, 500.1084pt x 353.6412pt>
-File: figs/opac_map_rho_T/t_10days.png Graphic file (type png)
-<use figs/opac_map_rho_T/t_10days.png>
-Package pdftex.def Info: figs/opac_map_rho_T/t_10days.png  used on input line 2
-51.
-(pdftex.def)             Requested size: 261.0pt x 184.56358pt.
-<figs/opac_map_rho_T/t_100days.png, id=32, 500.1084pt x 353.6412pt>
-File: figs/opac_map_rho_T/t_100days.png Graphic file (type png)
-<use figs/opac_map_rho_T/t_100days.png>
-Package pdftex.def Info: figs/opac_map_rho_T/t_100days.png  used on input line 
-252.
-(pdftex.def)             Requested size: 261.0pt x 184.56358pt.
-
-Overfull \hbox (9.0pt too wide) in paragraph at lines 250--254
- [][] 
- []
-
-
-Overfull \hbox (9.0pt too wide) in paragraph at lines 250--254
- [] 
- []
-
-
-Overfull \hbox (9.0pt too wide) in paragraph at lines 250--254
- [] 
- []
+<figs/kappa_smoothed_vs_raw.png, id=79, 426.8748pt x 281.853pt>
+File: figs/kappa_smoothed_vs_raw.png Graphic file (type png)
+<use figs/kappa_smoothed_vs_raw.png>
+Package pdftex.def Info: figs/kappa_smoothed_vs_raw.png  used on input line 260
+.
+(pdftex.def)             Requested size: 252.0pt x 166.39075pt.
+<figs/kappa_smoothed_vs_raw_error.png, id=81, 426.8748pt x 280.8894pt>
+File: figs/kappa_smoothed_vs_raw_error.png Graphic file (type png)
+<use figs/kappa_smoothed_vs_raw_error.png>
+Package pdftex.def Info: figs/kappa_smoothed_vs_raw_error.png  used on input li
+ne 261.
+(pdftex.def)             Requested size: 252.0pt x 165.82188pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figs/opac_map_rhot_T/t_1days.png, id=33, 500.1084pt x 353.6412pt>
-File: figs/opac_map_rhot_T/t_1days.png Graphic file (type png)
-<use figs/opac_map_rhot_T/t_1days.png>
-Package pdftex.def Info: figs/opac_map_rhot_T/t_1days.png  used on input line 2
-62.
-(pdftex.def)             Requested size: 261.0pt x 184.56358pt.
-<figs/opac_map_rhot_T/t_10days.png, id=34, 500.1084pt x 353.6412pt>
-File: figs/opac_map_rhot_T/t_10days.png Graphic file (type png)
-<use figs/opac_map_rhot_T/t_10days.png>
-Package pdftex.def Info: figs/opac_map_rhot_T/t_10days.png  used on input line 
-263.
-(pdftex.def)             Requested size: 261.0pt x 184.56358pt.
-<figs/opac_map_rhot_T/t_100days.png, id=35, 500.1084pt x 353.6412pt>
-File: figs/opac_map_rhot_T/t_100days.png Graphic file (type png)
-<use figs/opac_map_rhot_T/t_100days.png>
-Package pdftex.def Info: figs/opac_map_rhot_T/t_100days.png  used on input line
- 264.
-(pdftex.def)             Requested size: 261.0pt x 184.56358pt.
+<figs/convergence_Fe_rho1.00e-12_t3.0days.png, id=86, 496.254pt x 278.9622pt>
+File: figs/convergence_Fe_rho1.00e-12_t3.0days.png Graphic file (type png)
+<use figs/convergence_Fe_rho1.00e-12_t3.0days.png>
+Package pdftex.def Info: figs/convergence_Fe_rho1.00e-12_t3.0days.png  used on 
+input line 310.
+(pdftex.def)             Requested size: 252.0pt x 141.65588pt.
+<figs/convergence_Er_rho1.00e-12_t1.0days.png, id=87, 496.7358pt x 279.444pt>
+File: figs/convergence_Er_rho1.00e-12_t1.0days.png Graphic file (type png)
+<use figs/convergence_Er_rho1.00e-12_t1.0days.png>
+Package pdftex.def Info: figs/convergence_Er_rho1.00e-12_t1.0days.png  used on 
+input line 311.
+(pdftex.def)             Requested size: 252.0pt x 141.76408pt.
 
-Overfull \hbox (9.0pt too wide) in paragraph at lines 262--267
- [][] 
- []
-
-
-Overfull \hbox (9.0pt too wide) in paragraph at lines 262--267
- [] 
- []
-
-
-Overfull \hbox (9.0pt too wide) in paragraph at lines 262--267
- [] 
- []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-
-[3 <./figs/kappa_smoothed_vs_raw.png> <./figs/kappa_smoothed_vs_raw_error.png> 
-<./figs/convergence_Fe_rho3.00e-12_t10.0days.png>]
+Underfull \vbox (badness 3219) has occurred while \output is active []
 
 
 
-[4 <./figs/opac_map_rho_T/t_1days.png> <./figs/opac_map_rho_T/t_10days.png> <./
-figs/opac_map_rho_T/t_100days.png> <./figs/opac_map_rhot_T/t_1days.png> <./figs
-/opac_map_rhot_T/t_10days.png> <./figs/opac_map_rhot_T/t_100days.png>]
-<figs/opacity_comparison.png, id=54, 984.67876pt x 577.15625pt>
+[3 <./figs/kappa_smoothed_vs_raw.png> <./figs/kappa_smoothed_vs_raw_error.png>]
+
+
+<figs/ni_rosseland_t10d.png, id=112, 501.5538pt x 353.6412pt>
+File: figs/ni_rosseland_t10d.png Graphic file (type png)
+<use figs/ni_rosseland_t10d.png>
+Package pdftex.def Info: figs/ni_rosseland_t10d.png  used on input line 431.
+(pdftex.def)             Requested size: 252.0pt x 177.68353pt.
+<figs/ni_planck_t10d.png, id=113, 501.5538pt x 353.6412pt>
+File: figs/ni_planck_t10d.png Graphic file (type png)
+<use figs/ni_planck_t10d.png>
+Package pdftex.def Info: figs/ni_planck_t10d.png  used on input line 432.
+(pdftex.def)             Requested size: 252.0pt x 177.68353pt.
+<figs/ni_ratio_t10d.png, id=114, 501.5538pt x 354.123pt>
+File: figs/ni_ratio_t10d.png Graphic file (type png)
+<use figs/ni_ratio_t10d.png>
+Package pdftex.def Info: figs/ni_ratio_t10d.png  used on input line 433.
+(pdftex.def)             Requested size: 252.0pt x 177.92561pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figs/kilonova_rosseland_t1d.png, id=115, 501.5538pt x 353.6412pt>
+File: figs/kilonova_rosseland_t1d.png Graphic file (type png)
+<use figs/kilonova_rosseland_t1d.png>
+Package pdftex.def Info: figs/kilonova_rosseland_t1d.png  used on input line 44
+6.
+(pdftex.def)             Requested size: 252.0pt x 177.68353pt.
+<figs/kilonova_planck_t1d.png, id=116, 501.5538pt x 353.6412pt>
+File: figs/kilonova_planck_t1d.png Graphic file (type png)
+<use figs/kilonova_planck_t1d.png>
+Package pdftex.def Info: figs/kilonova_planck_t1d.png  used on input line 447.
+(pdftex.def)             Requested size: 252.0pt x 177.68353pt.
+<figs/kilonova_ratio_t1d.png, id=117, 501.5538pt x 354.123pt>
+File: figs/kilonova_ratio_t1d.png Graphic file (type png)
+<use figs/kilonova_ratio_t1d.png>
+Package pdftex.def Info: figs/kilonova_ratio_t1d.png  used on input line 448.
+(pdftex.def)             Requested size: 252.0pt x 177.92561pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[4 <./figs/convergence_Fe_rho1.00e-12_t3.0days.png> <./figs/convergence_Er_rho1
+.00e-12_t1.0days.png>]
+
+
+
+[5 <./figs/ni_rosseland_t10d.png> <./figs/ni_planck_t10d.png> <./figs/ni_ratio_
+t10d.png> <./figs/kilonova_rosseland_t1d.png> <./figs/kilonova_planck_t1d.png> 
+<./figs/kilonova_ratio_t1d.png>]
+<figs/opacity_comparison.png, id=140, 988.69376pt x 589.20125pt>
 File: figs/opacity_comparison.png Graphic file (type png)
 <use figs/opacity_comparison.png>
-Package pdftex.def Info: figs/opacity_comparison.png  used on input line 313.
-(pdftex.def)             Requested size: 250.55777pt x 146.86024pt.
+Package pdftex.def Info: figs/opacity_comparison.png  used on input line 484.
+(pdftex.def)             Requested size: 250.55777pt x 149.31381pt.
+<figs/luminosity_with_deposition.png, id=143, 713.5458pt x 423.0204pt>
+File: figs/luminosity_with_deposition.png Graphic file (type png)
+<use figs/luminosity_with_deposition.png>
+Package pdftex.def Info: figs/luminosity_with_deposition.png  used on input lin
+e 500.
+(pdftex.def)             Requested size: 250.55777pt x 148.54346pt.
 
-Underfull \vbox (badness 4096) has occurred while \output is active []
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
 (out_opacity/OpacityCalculation.bbl
-Underfull \hbox (badness 2310) in paragraph at lines 17--20
-[]\T1/ptm/m/n/10 Y. El-baz, et al., Uri-light: Ra-di-a-tion trans-port code
+
+[6
+
+ <./figs/opacity_comparison.png> <./figs/luminosity_with_deposition.png>]
+Underfull \hbox (badness 5696) in paragraph at lines 52--55
+[]\T1/ptm/m/n/10 Y. El-baz, et al., [][]URI-LIGHT: A New Code for
+ []
+
+
+Underfull \hbox (badness 5064) in paragraph at lines 52--55
+\T1/ptm/m/n/10 Ra-di-a-tion Trans-port in Su-per-novae[][], arXiv preprint
  []
 
 )
 
-[5
 
- <./figs/opacity_comparison.png>] (out_opacity/OpacityCalculation.aux)
+
+[7
+
+] (out_opacity/OpacityCalculation.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+Package rerunfilecheck Info: File `OpacityCalculation.out' has not changed.
+(rerunfilecheck)             Checksum: E4609144EBD33301562A4F322C828A87;688.
  ) 
 Here is how much of TeX's memory you used:
- 5187 strings out of 474662
- 79096 string characters out of 5751108
- 488097 words of memory out of 5000000
- 28141 multiletter control sequences out of 15000+600000
- 584673 words of font info for 72 fonts, out of 8000000 for 9000
+ 11527 strings out of 474662
+ 177164 string characters out of 5751108
+ 591267 words of memory out of 5000000
+ 34362 multiletter control sequences out of 15000+600000
+ 584992 words of font info for 73 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 72i,9n,79p,616b,344s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,79p,624b,569s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex1
 0.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmmi5.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi7.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025basic/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025basic/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025basic/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025basic/tex
-mf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2025basic/texmf-dis
-t/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/
-texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025basic/texmf
--dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025basic/texmf-dist
-/fonts/type1/urw/times/utmri8a.pfb>
-Output written on out_opacity/OpacityCalculation.pdf (5 pages, 2852430 bytes).
+ts/cm/cmmi6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi7.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025basic/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025basic/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025basic/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025basic/
+texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf
+-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2025basic/texmf-dist/
+fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/te
+xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025basic/texmf-d
+ist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025basic/texmf-dist/f
+onts/type1/urw/times/utmri8a.pfb>
+Output written on out_opacity/OpacityCalculation.pdf (7 pages, 1911652 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 288 PDF objects out of 1000 (max. 8388607)
+ 207 compressed objects within 3 object streams
+ 44 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

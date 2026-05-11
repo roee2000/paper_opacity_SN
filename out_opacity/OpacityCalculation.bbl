@@ -1,21 +1,60 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 \expandafter\ifx\csname href\endcsname\relax
   \def\href#1#2{#2} \def\path#1{#1}\fi
 
+\bibitem{fontes2015opacity}
+C.~J. Fontes, C.~L. Fryer, A.~L. Hungerford, P.~Hakel, J.~Colgan, D.~P.
+  Kilcrease, M.~E. Sherrill,
+  \href{https://doi.org/10.1016/j.hedp.2015.06.002}{Relativistic opacities for
+  astrophysical applications}, High Energy Density Physics 16~(C) (2015)
+  53--59.
+
+\bibitem{fontes2017linesmeared}
+C.~J. Fontes, C.~L. Fryer, A.~L. Hungerford, R.~T. Wollaeger, S.~Rosswog,
+  E.~Berger, \href{https://arxiv.org/abs/1702.02990}{A line-smeared treatment
+  of opacities for the spectra and light curves from macronovae}, arXiv
+  preprint arXiv:1702.02990 (2017).
+
+\bibitem{fontes2020opacity}
+C.~J. Fontes, C.~L. Fryer, A.~L. Hungerford, R.~T. Wollaeger, O.~Korobkin,
+  \href{https://academic.oup.com/mnras/article/493/3/4143/5758310}{A
+  line-binned treatment of opacities for the spectra and light curves from
+  neutron star mergers}, Monthly Notices of the Royal Astronomical Society
+  493~(3) (2020) 4143--4171.
+
+\bibitem{deprince2024kilonova}
+J.~Deprince, G.~Wagle, S.~Ben~Nasr, H.~Carvajal~Gallego, O.~Just, P.~Palmeri,
+  P.~Quinet, M.~Godefroid, S.~Van~Eck, Kilonova ejecta opacity inferred from
+  new large-scale hfr atomic calculations in all elements between ca (z = 20)
+  and lr (z = 103), Astronomy \& Astrophysics (2024).
+
+\bibitem{just2022properties}
+O.~Just, et~al., Properties of kilonovae from dynamical and post-merger ejecta
+  of neutron star mergers, The Astrophysical Journal (2022).
+
+\bibitem{tanaka2020systematic}
+M.~Tanaka, D.~Kato, G.~Gaigalas, K.~Kawaguchi,
+  \href{https://doi.org/10.3847/1538-4357/ab76ba}{Systematic Opacity
+  Calculations for Kilonovae}, The Astrophysical Journal 891~(2) (2020) 143.
+
 \bibitem{kurucz1995}
 R.~L. Kurucz, B.~Bell, Atomic line list (1995).
 
+\bibitem{nistASD}
+{Kramida, A.}, {Ralchenko, Yu.}, {Reader, J.}, {NIST ASD Team},
+  \href{https://physics.nist.gov/asd}{NIST Atomic Spectra Database}, national
+  Institute of Standards and Technology, Gaithersburg, MD; version 5.11 (2024).
+
 \bibitem{urilight1}
-Y.~Elbaz, et~al., Urilight: A new code for radiation transport in supernovae,
-  arXiv preprint arXiv:1711.00969 (2017).
-\newblock \href {http://arxiv.org/abs/1711.00969} {\path{arXiv:1711.00969}}.
+Y.~Elbaz, et~al., \href{https://arxiv.org/abs/1711.00969}{URILIGHT: A New Code
+  for Radiation Transport in Supernovae}, arXiv preprint arXiv:1711.00969
+  (2017).
 
 \bibitem{urilight2}
-Y.~Elbaz, et~al., Urilight: Radiation transport code for supernovae, arXiv
-  preprint arXiv:1805.06907 (2018).
-\newblock \href {http://arxiv.org/abs/1805.06907} {\path{arXiv:1805.06907}}.
+Y.~Elbaz, et~al., \href{https://arxiv.org/abs/1805.06907}{URILIGHT: Radiation
+  Transport Code for Supernovae}, arXiv preprint arXiv:1805.06907 (2018).
 
 \end{thebibliography}
