@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.23)  11 MAY 2026 15:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.23)  2 JUN 2026 09:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -455,220 +455,214 @@ Package hyperref Info: Link coloring ON on input line 21.
 \@outlinefile=\write4
 \openout4 = `OpacityCalculation.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
-7.
-
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
 
 
-Underfull \vbox (badness 3919) has occurred while \output is active []
+Underfull \vbox (badness 7944) has occurred while \output is active []
 
 
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 121.
+(hyperref)                removing `\<def>-command' on input line 118.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 121.
+(hyperref)                removing `\cnotenum' on input line 118.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 121.
+(hyperref)                removing `\<def>-command' on input line 118.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 121.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\cnotenum' on input line 121.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 121.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@corref' on input line 121.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 121.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 121.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 121.
+(hyperref)                removing `\@corref' on input line 118.
 
 [1{/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/
 usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
-{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
+]
 
 
 
 [2]
-<figs/kappa_smoothed_vs_raw.png, id=79, 426.8748pt x 281.853pt>
+<figs/kappa_smoothed_vs_raw.png, id=82, 426.8748pt x 281.853pt>
 File: figs/kappa_smoothed_vs_raw.png Graphic file (type png)
 <use figs/kappa_smoothed_vs_raw.png>
-Package pdftex.def Info: figs/kappa_smoothed_vs_raw.png  used on input line 260
+Package pdftex.def Info: figs/kappa_smoothed_vs_raw.png  used on input line 251
 .
 (pdftex.def)             Requested size: 252.0pt x 166.39075pt.
-<figs/kappa_smoothed_vs_raw_error.png, id=81, 426.8748pt x 280.8894pt>
+<figs/kappa_smoothed_vs_raw_error.png, id=84, 426.8748pt x 280.8894pt>
 File: figs/kappa_smoothed_vs_raw_error.png Graphic file (type png)
 <use figs/kappa_smoothed_vs_raw_error.png>
 Package pdftex.def Info: figs/kappa_smoothed_vs_raw_error.png  used on input li
-ne 261.
+ne 252.
 (pdftex.def)             Requested size: 252.0pt x 165.82188pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+<figs/convergence_Fe_rho1.00e-13_t20.0days.png, id=87, 492.8814pt x 275.1078pt>
 
-<figs/convergence_Fe_rho1.00e-12_t3.0days.png, id=86, 496.254pt x 278.9622pt>
-File: figs/convergence_Fe_rho1.00e-12_t3.0days.png Graphic file (type png)
-<use figs/convergence_Fe_rho1.00e-12_t3.0days.png>
-Package pdftex.def Info: figs/convergence_Fe_rho1.00e-12_t3.0days.png  used on 
-input line 310.
-(pdftex.def)             Requested size: 252.0pt x 141.65588pt.
-<figs/convergence_Er_rho1.00e-12_t1.0days.png, id=87, 496.7358pt x 279.444pt>
+File: figs/convergence_Fe_rho1.00e-13_t20.0days.png Graphic file (type png)
+<use figs/convergence_Fe_rho1.00e-13_t20.0days.png>
+Package pdftex.def Info: figs/convergence_Fe_rho1.00e-13_t20.0days.png  used on
+ input line 296.
+(pdftex.def)             Requested size: 252.0pt x 140.65573pt.
+<figs/convergence_Er_rho1.00e-12_t1.0days.png, id=88, 492.8814pt x 275.1078pt>
 File: figs/convergence_Er_rho1.00e-12_t1.0days.png Graphic file (type png)
 <use figs/convergence_Er_rho1.00e-12_t1.0days.png>
 Package pdftex.def Info: figs/convergence_Er_rho1.00e-12_t1.0days.png  used on 
-input line 311.
-(pdftex.def)             Requested size: 252.0pt x 141.76408pt.
+input line 297.
+(pdftex.def)             Requested size: 252.0pt x 140.65573pt.
 
 
+[3 <./figs/kappa_smoothed_vs_raw.png> <./figs/kappa_smoothed_vs_raw_error.png> 
+<./figs/convergence_Fe_rho1.00e-13_t20.0days.png> <./figs/convergence_Er_rho1.0
+0e-12_t1.0days.png>]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 3219) has occurred while \output is active []
-
-
-
-[3 <./figs/kappa_smoothed_vs_raw.png> <./figs/kappa_smoothed_vs_raw_error.png>]
-
-
-<figs/ni_rosseland_t10d.png, id=112, 501.5538pt x 353.6412pt>
+<figs/ni_rosseland_t10d.png, id=122, 385.05457pt x 296.01791pt>
 File: figs/ni_rosseland_t10d.png Graphic file (type png)
 <use figs/ni_rosseland_t10d.png>
-Package pdftex.def Info: figs/ni_rosseland_t10d.png  used on input line 431.
-(pdftex.def)             Requested size: 252.0pt x 177.68353pt.
-<figs/ni_planck_t10d.png, id=113, 501.5538pt x 353.6412pt>
-File: figs/ni_planck_t10d.png Graphic file (type png)
-<use figs/ni_planck_t10d.png>
-Package pdftex.def Info: figs/ni_planck_t10d.png  used on input line 432.
-(pdftex.def)             Requested size: 252.0pt x 177.68353pt.
-<figs/ni_ratio_t10d.png, id=114, 501.5538pt x 354.123pt>
+Package pdftex.def Info: figs/ni_rosseland_t10d.png  used on input line 398.
+(pdftex.def)             Requested size: 250.55777pt x 192.62164pt.
+<figs/ni_ratio_t10d.png, id=123, 388.8126pt x 296.01791pt>
 File: figs/ni_ratio_t10d.png Graphic file (type png)
 <use figs/ni_ratio_t10d.png>
-Package pdftex.def Info: figs/ni_ratio_t10d.png  used on input line 433.
-(pdftex.def)             Requested size: 252.0pt x 177.92561pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figs/kilonova_rosseland_t1d.png, id=115, 501.5538pt x 353.6412pt>
+Package pdftex.def Info: figs/ni_ratio_t10d.png  used on input line 398.
+(pdftex.def)             Requested size: 250.55777pt x 190.76521pt.
+<figs/sn1a_outer_rosseland_t10d.png, id=124, 385.05457pt x 296.01791pt>
+File: figs/sn1a_outer_rosseland_t10d.png Graphic file (type png)
+<use figs/sn1a_outer_rosseland_t10d.png>
+Package pdftex.def Info: figs/sn1a_outer_rosseland_t10d.png  used on input line
+ 413.
+(pdftex.def)             Requested size: 250.55777pt x 192.62164pt.
+<figs/sn1a_outer_ratio_t10d.png, id=125, 388.8126pt x 296.01791pt>
+File: figs/sn1a_outer_ratio_t10d.png Graphic file (type png)
+<use figs/sn1a_outer_ratio_t10d.png>
+Package pdftex.def Info: figs/sn1a_outer_ratio_t10d.png  used on input line 413
+.
+(pdftex.def)             Requested size: 250.55777pt x 190.76521pt.
+<figs/kilonova_rosseland_t1d.png, id=126, 388.8126pt x 296.01791pt>
 File: figs/kilonova_rosseland_t1d.png Graphic file (type png)
 <use figs/kilonova_rosseland_t1d.png>
-Package pdftex.def Info: figs/kilonova_rosseland_t1d.png  used on input line 44
-6.
-(pdftex.def)             Requested size: 252.0pt x 177.68353pt.
-<figs/kilonova_planck_t1d.png, id=116, 501.5538pt x 353.6412pt>
-File: figs/kilonova_planck_t1d.png Graphic file (type png)
-<use figs/kilonova_planck_t1d.png>
-Package pdftex.def Info: figs/kilonova_planck_t1d.png  used on input line 447.
-(pdftex.def)             Requested size: 252.0pt x 177.68353pt.
-<figs/kilonova_ratio_t1d.png, id=117, 501.5538pt x 354.123pt>
+Package pdftex.def Info: figs/kilonova_rosseland_t1d.png  used on input line 42
+8.
+(pdftex.def)             Requested size: 250.55777pt x 190.76521pt.
+<figs/kilonova_ratio_t1d.png, id=127, 388.8126pt x 296.01791pt>
 File: figs/kilonova_ratio_t1d.png Graphic file (type png)
 <use figs/kilonova_ratio_t1d.png>
-Package pdftex.def Info: figs/kilonova_ratio_t1d.png  used on input line 448.
-(pdftex.def)             Requested size: 252.0pt x 177.92561pt.
+Package pdftex.def Info: figs/kilonova_ratio_t1d.png  used on input line 428.
+(pdftex.def)             Requested size: 250.55777pt x 190.76521pt.
+<figs/type1_kilonova_kappa_vs_T.png, id=128, 529.7391pt x 363.87946pt>
+File: figs/type1_kilonova_kappa_vs_T.png Graphic file (type png)
+<use figs/type1_kilonova_kappa_vs_T.png>
+Package pdftex.def Info: figs/type1_kilonova_kappa_vs_T.png  used on input line
+ 439.
+(pdftex.def)             Requested size: 252.0pt x 173.09993pt.
+<figs/type1_kilonova_kappa_vs_rho.png, id=129, 530.4618pt x 364.2408pt>
+File: figs/type1_kilonova_kappa_vs_rho.png Graphic file (type png)
+<use figs/type1_kilonova_kappa_vs_rho.png>
+Package pdftex.def Info: figs/type1_kilonova_kappa_vs_rho.png  used on input li
+ne 453.
+(pdftex.def)             Requested size: 252.0pt x 173.03285pt.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+76.
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Underfull \hbox (badness 1122) in paragraph at lines 497--507
+\T1/ptm/m/n/10 their fre-quency and in-ter-act with the frequency-dependent
+ []
+
+
+
+[4{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+<figs/ejecta_geometry.png, id=155, 365.97528pt x 250.92143pt>
+File: figs/ejecta_geometry.png Graphic file (type png)
+<use figs/ejecta_geometry.png>
+Package pdftex.def Info: figs/ejecta_geometry.png  used on input line 524.
+(pdftex.def)             Requested size: 250.55777pt x 171.78824pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figs/luminosity_models.png, id=157, 366.55344pt x 250.92143pt>
+File: figs/luminosity_models.png Graphic file (type png)
+<use figs/luminosity_models.png>
+Package pdftex.def Info: figs/luminosity_models.png  used on input line 543.
+(pdftex.def)             Requested size: 250.55777pt x 171.5164pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-
-[4 <./figs/convergence_Fe_rho1.00e-12_t3.0days.png> <./figs/convergence_Er_rho1
-.00e-12_t1.0days.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[5 <./figs/ni_rosseland_t10d.png> <./figs/ni_planck_t10d.png> <./figs/ni_ratio_
-t10d.png> <./figs/kilonova_rosseland_t1d.png> <./figs/kilonova_planck_t1d.png> 
-<./figs/kilonova_ratio_t1d.png>]
-<figs/opacity_comparison.png, id=140, 988.69376pt x 589.20125pt>
-File: figs/opacity_comparison.png Graphic file (type png)
-<use figs/opacity_comparison.png>
-Package pdftex.def Info: figs/opacity_comparison.png  used on input line 484.
-(pdftex.def)             Requested size: 250.55777pt x 149.31381pt.
-<figs/luminosity_with_deposition.png, id=143, 713.5458pt x 423.0204pt>
-File: figs/luminosity_with_deposition.png Graphic file (type png)
-<use figs/luminosity_with_deposition.png>
-Package pdftex.def Info: figs/luminosity_with_deposition.png  used on input lin
-e 500.
-(pdftex.def)             Requested size: 250.55777pt x 148.54346pt.
+[5 <./figs/ni_rosseland_t10d.png> <./figs/ni_ratio_t10d.png> <./figs/sn1a_outer
+_rosseland_t10d.png> <./figs/sn1a_outer_ratio_t10d.png>]
+
+<figs/profile_colormap.png, id=172, 853.5087pt x 354.123pt>
+File: figs/profile_colormap.png Graphic file (type png)
+<use figs/profile_colormap.png>
+Package pdftex.def Info: figs/profile_colormap.png  used on input line 582.
+(pdftex.def)             Requested size: 522.0pt x 216.57666pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+[6 <./figs/kilonova_rosseland_t1d.png> <./figs/kilonova_ratio_t1d.png> <./figs/
+type1_kilonova_kappa_vs_T.png> <./figs/type1_kilonova_kappa_vs_rho.png>]
 
 
+Underfull \hbox (badness 1360) in paragraph at lines 631--636
+[]\T1/ptm/m/n/10 Finally, we tested single-group ra-di-a-tion trans-port sim-
+ []
 
 (out_opacity/OpacityCalculation.bbl
 
-[6
-
- <./figs/opacity_comparison.png> <./figs/luminosity_with_deposition.png>]
-Underfull \hbox (badness 5696) in paragraph at lines 52--55
-[]\T1/ptm/m/n/10 Y. El-baz, et al., [][]URI-LIGHT: A New Code for
+[7 <./figs/ejecta_geometry.png> <./figs/luminosity_models.png>]
+Underfull \hbox (badness 3219) in paragraph at lines 57--61
+[]\T1/ptm/m/n/10 Y. El-baz, [][]URI-LIGHT: Time-dependent Monte-Carlo
  []
 
 
-Underfull \hbox (badness 5064) in paragraph at lines 52--55
-\T1/ptm/m/n/10 Ra-di-a-tion Trans-port in Su-per-novae[][], arXiv preprint
+Underfull \hbox (badness 1728) in paragraph at lines 57--61
+\T1/ptm/m/n/10 radiative-transfer[][], As-tro-physics Source Code Li-brary,
  []
+
+
 
 )
 
-
-
-[7
-
-] (out_opacity/OpacityCalculation.aux)
+[8 <./figs/profile_colormap.png>] (out_opacity/OpacityCalculation.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `OpacityCalculation.out' has not changed.
-(rerunfilecheck)             Checksum: E4609144EBD33301562A4F322C828A87;688.
+(rerunfilecheck)             Checksum: 1A749318C7D8383F291C9D0B0BDBC46B;1157.
  ) 
 Here is how much of TeX's memory you used:
- 11527 strings out of 474662
- 177164 string characters out of 5751108
- 591267 words of memory out of 5000000
- 34362 multiletter control sequences out of 15000+600000
- 584992 words of font info for 73 fonts, out of 8000000 for 9000
+ 11585 strings out of 474662
+ 178753 string characters out of 5751108
+ 597548 words of memory out of 5000000
+ 34408 multiletter control sequences out of 15000+600000
+ 588597 words of font info for 75 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 75i,9n,79p,624b,569s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,79p,664b,559s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex1
 0.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/
@@ -682,20 +676,18 @@ ublic/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1
 e1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025basic/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025basic/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025basic/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025basic/
-texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf
--dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2025basic/texmf-dist/
-fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic/te
-xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025basic/texmf-d
-ist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025basic/texmf-dist/f
-onts/type1/urw/times/utmri8a.pfb>
-Output written on out_opacity/OpacityCalculation.pdf (7 pages, 1911652 bytes).
+onts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025basic/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025basic/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025basic/tex
+mf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025basic/texmf-di
+st/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025basic
+/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025basic/texm
+f-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025basic/texmf-dis
+t/fonts/type1/urw/times/utmri8a.pfb>
+Output written on out_opacity/OpacityCalculation.pdf (8 pages, 2930985 bytes).
 PDF statistics:
- 288 PDF objects out of 1000 (max. 8388607)
- 207 compressed objects within 3 object streams
- 44 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 324 PDF objects out of 1000 (max. 8388607)
+ 241 compressed objects within 3 object streams
+ 55 named destinations out of 1000 (max. 500000)
+ 124 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -24,43 +24,36 @@
 
 %% Title, authors and addresses
 
-\author{Roee Yaron$^{1,2}$}
-\author{Ehud Nakar\corref{cor1}$^2$}
-\ead{nakar@tauex.tau.ac.il}
+\author[1]{Roy G. Yaron}
+\author[1]{Ehud Nakar\corref{cor1}}
 
-\cortext[cor1]{Corresponding author}
+\cortext[cor1]{Corresponding author: \href{mailto:udini@tauex.tau.ac.il}{udini@tauex.tau.ac.il}}
 
-\affiliation{organization={1. Israel Atomic Energy Commission},
-           addressline={P.O. Box 7061}, 
-           city={Tel Aviv},
-           postcode={61070}, 
-           state={},
-           country={Israel}}
-\affiliation{organization={2. School of Physics and Astronomy, Tel Aviv University},
-           addressline={},
+\affiliation[1]{organization={School of Physics and Astronomy, Tel Aviv University},
            city={Tel Aviv},
            postcode={6997801}, 
-           state={},
            country={Israel}}
 
-\title{Rosseland Mean Opacity for Expansion Opacity from Bound-Bound Lines} %% Article title
+\title{Defining Effective Rosseland Mean for Expansion Opacity} %% Article title
 
 %% Abstract
 \begin{abstract}
-We define "Expansion Rosseland mean opacity" a new method for calculating Rosseland mean opacity that accounts for expansion
-opacity, of bound-bound atomic transitions smoothed out due to the Doppler effect.
-The method smooths the frequency-dependent opacity using a $\tau=1$ window, where for each frequency the
-distance required to reach optical depth unity is calculated. The smoothed opacity is then determined from
-$\kappa = 1/(\rho \Delta x)$, where $\Delta x$ is the path length for $\tau=1$. Monte Carlo radiative transfer simulations
-using this new Rosseland opacity yield results similar to full frequency-group calculations, demonstrating that the averaging
-successfully captures the essential physics of expansion opacity, while saving most of the MC computational cost.
+The standard Rosseland mean does not account for the Doppler shift of photons through spectral lines during expansion
+and can substantially misestimate the opacity of line-rich ejecta.
+We define an effective Rosseland mean opacity, $\kappa_R^{\rm exp}$, for radiative transfer in expanding media where
+bound-bound transitions dominate the opacity.
+For each frequency, the method calculates the distance an outward travelling photon covers before reaching optical
+depth unity, and assigns an effective expansion opacity $\kappa_{\rm exp} = 1/(\rho \Delta x)$.
+Single-group Monte Carlo radiative transfer simulations using this opacity reproduce the trends of full frequency-group
+calculations for Type~Ia supernova and kilonova ejecta, with peak luminosities differing by about 25\%, while reducing
+the computational time by more than an order of magnitude.
 \end{abstract}
 
 %% Keywords
 \begin{keyword}
 %% keywords here, in the form: keyword \sep keyword
 
-opacity \sep  Rosseland mean \sep expansion opacity \sep bound-bound transitions \sep kilonova \sep supernovae
+opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernovae
 
 \end{keyword}
 
@@ -74,12 +67,13 @@ opacity \sep  Rosseland mean \sep expansion opacity \sep bound-bound transitions
     The interaction between radiation and matter is primarily determined by the material properties such as composition, density,
     and temperature, as well as the spectral characteristics of the radiation.
     In expanding plasmas, due to the Doppler effect, as photons travel through the plasma, their frequency changes. 
-    This effect is mainly important for bound-bound transitions, due to their high gradient in frequency which cause photons to interact 
+    This effect is mainly important for bound-bound transitions, because their narrow line structure in frequency causes photons to interact 
     with different lines as they travel through the plasma.
     This effect is known as expansion opacity, and it is important for many astrophysical applications, such as Type Ia supernovae,
     kilonovae and stellar winds. 
-    Under the reasonable condition of non-ultra relativistic velocities, 
-    the frequency shift due to the Doppler shift is approximately $\Delta \nu = \nu_0 \frac{\Delta v}{c}$.
+    %Under the reasonable condition of non-ultra relativistic velocities, 
+    %the frequency shift due to the Doppler shift is approximately $\Delta \nu = \nu_0 \frac{\Delta v}{c}$.
+    %to write its usually less then 10\% of the frequency.
 
     For non-moving plasmas, the radiation flux can be approximated well using the Rosseland mean opacity, which is a weighted
     average of the opacity over all frequencies. However, for expanding plasmas with significant bound-bound opacity, the Rosseland mean 
@@ -111,26 +105,32 @@ opacity \sep  Rosseland mean \sep expansion opacity \sep bound-bound transitions
     obtained from full line-by-line Monte Carlo radiation transport (using the superNu code) for kilonovae (neutron
     star mergers).
     However, this approach still requires multigroup frequency-dependent opacity tables rather than
-    a single gray (frequency-averaged) Rosseland mean opacity and uses unphysical assumption which
-    have been verified only for specific ejecta.
+    a single gray (frequency-averaged) Rosseland mean opacity and uses an unphysical assumption that
+    has been verified only for specific ejecta.
     Several works \cite{deprince2024kilonova,just2022properties,tanaka2020systematic} have shown how opacity depends on composition,
     temperature, density, and time by comparing the Planck mean expansion opacity over those parameters.
-    The Planck mean is nevertheless a poor indicator of the "effective opacity" which sets the rate at which energy leaks out of the ejecta.
-    In a non-expanding medium the frequency weighting that sets the typical photon escape is exactly the Rosseland mean, while in an expanding
-    medium the relevant average should be at least of the same character and therefore not the Planck mean.
+    The Planck mean is nevertheless not the appropriate average for the opacity that controls photon
+    escape from the ejecta. In a non-expanding medium this transport opacity is the Rosseland mean,
+    which weights the low-opacity frequency windows through which photons preferentially diffuse.
+    In an expanding medium the same transport character is needed, but the opacity must also include
+    the line absorption encountered as the photon redshifts through the expanding flow.
 
-    In this paper we present a parameter "The expansion Rosseland mean opacity" that properly accounts for expansion opacity 
-    effects from bound-bound lines. The method assumes a photon which travels "outwards" from the center of the expanding plasma and
-    assumes homologous expansion ($r=v\cdot t $) and thus gives the opacity as a function of time in addition to the density and
-    temperature $ \kappa (T, \rho, t) $.
+    In this paper we present the effective expansion opacity, $\kappa_{\rm exp}$, which accounts for
+    bound-bound expansion opacity. The method follows an outward-moving photon in homologous expansion
+    ($r=vt$) and calculates the distance over which it reaches optical depth $\tau\simeq1$.
+    Taking the Rosseland mean of $\kappa_{\rm exp}$ defines the effective expansion Rosseland mean,
+    $\kappa_R^{\rm exp}(T,\rho,t)$.
+    This gray-opacity method assumes that the photons dominating the diffusion are close to a
+    blackbody spectrum. It is therefore useful for bolometric luminosities and characteristic
+    temperatures, but not for detailed line spectra.
 
     The structure of the paper is as follows: In \secref{SecExpansion} we describe how the expansion opacity is calculated, 
-    and define the expansion Rosseland mean opacity.
-    In \secref{SecRosseland}, we show the variation of the expansion Rosseland mean opacity with composition, temperature, density, and time
-    and show how it scale differently from the Planck mean and discuss its physical meaning.
-    In \secref{SecValidation} we demonstrate the use of the expansion Rosseland mean opacity in radiative transfer simulations and compare the
+    and define the effective expansion opacity.
+    In \secref{SecRosseland}, we show the variation of $\kappa_R^{\rm exp}$ with composition, temperature, density, and time
+    and show how it scales differently from the Planck mean.
+    In \secref{SecRadiationSimulations} we demonstrate the use of $\kappa_R^{\rm exp}$ in radiative transfer simulations and compare the
     results to the full frequency-group calculations. 
-    In \secref{SecSummary} we summarize the results and discuss future work.
+    In \secref{SecSummary} we summarize the results.
 %which means that the time is the velocity and frequency gradient $t = \frac{dv}{dR} = \frac{d\nu}{dR}$.
 
 
@@ -145,36 +145,20 @@ opacity \sep  Rosseland mean \sep expansion opacity \sep bound-bound transitions
     bound-free opacity (which we neglect in this work), and $\kappa_{\mathrm{bb}}$ is bound-bound opacity from atomic line 
     transitions.
 
-    The bb opacity $\kappa_{\mathrm{bb}}$ depends on the plasma's ionization and excitation populations for each material. This is 
-    calculated using the Boltzmann distribution.
+    The bb opacity $\kappa_{\mathrm{bb}}$ depends on the ionization and excitation populations
+    of the material. We obtain the ionization fractions from the Saha equation and the level
+    populations from the Boltzmann distribution, and use them to calculate the optical depth of each line.
 
-    \begin{equation}
-    N_{m,i+1} = \frac{N_{m,i}}{N_{m,0}} \frac{Z_{m,i+1}}{Z_{m,i}} \exp\left(-\frac{E_{i+1}-E_i}{kT}\right) \cdot g_{e}
-    \end{equation}
-    where $m, i, j$ are the indexes of the material, ionization level and energy level respectively, $N$ is the number density, $g$
-    and $E$ are the degeneracy and energy of the energy level respectively, $k$ is the Boltzmann constant, $T$ is the temperature and 
-    $g_e$ is the constant factor $g_e = \left(\frac{2\pi m_e kT}{h^2}\right)^{3/2}$.
-
-    $Z_{m,i}$ is the partition function of the state $i$ for the material $m$, and is calculated using the partition function formula:
-    \begin{equation}
-    Z_{m,i} = \sum_{j} g_j \exp\left(-\frac{E_j}{kT}\right)
-    \end{equation}
-
-    The number density $N_{m, i}$ is calculated using the Saha equation.
-    \begin{equation}
-    \frac{N_{m, i}}{N_{m, 0}} = \frac{g_i}{g_0} \left(\frac{2\pi m_e kT}{h^2}\right)^{3/2} \exp\left(-\frac{E_i}{kT}\right)
-    \end{equation}
-    where $m_e$ is the electron mass.
-
-    The optical depth of the bound-bound line is then calculated using the Sobolev approximation.
+    The optical depth of the bound-bound line is then calculated using the Sobolev approximation \cite{eastmanpinto1993}.
     \begin{equation}
         \tau_{j_l,j_u} = \frac{\pi e^{2}}{m_{e}} \frac{f_{j_l,j_u}}{\nu_{j_l,j_u}} t \left(N_{m,i,j_l} - \frac{g_{j_l}}{g_{j_u}} N_{m,i,j_u}\right)
     \end{equation}
-    where $j_l$ and $j_u$ are the lower and upper energy levels respectively, $f_{j_l,j_u}$ is the oscillator strength of the transition 
+    where $m$ is the material index, $i$ is the ionization state, $j_l$ and $j_u$ are the lower and upper energy levels respectively,
+    $f_{j_l,j_u}$ is the oscillator strength of the transition 
     from the energy level $j_l$ to the energy level $j_u$, $\nu_{j_l,j_u}$ is the frequency of the transition, $N_{m,i,j_l}$ and $N_{m,i,j_u}$ 
     are the number densities of the lower and upper levels respectively, $g_{j_l}$ and $g_{j_u}$ are their degeneracies, and $t$ is the time from explosion.
 
-    Then, there are two values for the bound-bound opacity, saturated and unsaturated which are calculated as:
+    There are two values for the bound-bound opacity, saturated and unsaturated which are calculated as:
     \begin{equation}
         \kappa_{bb,saturated}(\nu) = \sum_l \frac{\nu_l}{\rho c t} \delta(\nu - \nu_{l}) \cdot (1 - \exp(-\tau_{j_l,j_u}))
     \end{equation}
@@ -182,15 +166,16 @@ opacity \sep  Rosseland mean \sep expansion opacity \sep bound-bound transitions
         \kappa_{bb,unsaturated}(\nu) = \sum_l \frac{\nu_l}{\rho c t} \delta(\nu - \nu_{l}) \cdot \tau_{j_l,j_u}
     \end{equation}
 
-    The saturated opacity gives the effective contribution of a narrow line in a larger frequency bin,
-    by capping its effect once it becomes optically thick, since a singel line has a maximal effect on the opacity
-    once all photons in the line's frequnecy are absorbed.
-    The unsaturated opacity gives the real opacity at each point and for discrete frequency bins the 
-    exact optical depth of a photon which travels through the entire frequency bin.
-    The Expansion Rosseland opacity is calculated from the average distance an outward travelling
-    photon goes through in a plasma before reaching optical depth of 1, i.e. being scattered or absorbed.
-    This distance is calculated using the unsaturated opacity.
+    The saturated opacity gives the contribution of a narrow line to a larger finite frequency bin,
+    by capping its effect once it becomes optically thick, since a single line has a maximal effect on the opacity
+    once all photons in the line's frequency are absorbed.
+    The unsaturated opacity gives the optical depth accumulated by a photon that crosses the
+    full frequency bin.
 
+    We define the effective expansion opacity, $\kappa_{\rm exp}$, from the distance an outward travelling photon
+    moves through the plasma before accumulating optical depth unity.
+    The effective expansion Rosseland mean, $\kappa_R^{\rm exp}$, is then the Rosseland mean of
+    $\kappa_{\rm exp}$.
     An outward travelling photon with frequency $\nu_0$, will reach a new spectral line with frequency 
     $\nu_{l}$ after a velocity shift of $\Delta v = -c \ln(\nu_0/\nu_{l})$ which corresponds to a
     distance of $\Delta x = -c t \ln(\nu_0/\nu_{l})$.
@@ -203,13 +188,14 @@ opacity \sep  Rosseland mean \sep expansion opacity \sep bound-bound transitions
     we define the effective expansion opacity as:
     \begin{equation}
         \label{eq:kappa_eff_simple}
-        \kappa_{eff}(\nu_i) = \frac{1}{\rho \Delta R} = \frac{1}{\rho ct \frac{\nu_j - \nu_i}{\nu_i}}
+        \kappa_{\rm exp}(\nu_i) = \frac{1}{\rho \Delta x}
+        = \frac{1}{\rho ct \ln(\nu_j/\nu_i)}
     \end{equation}
 
-    For finite size frequency bins this process is done by interpolating between the frequency bins.
-    This is needed since otherwise the frequency shift would have an artificial minimum of
-    $\Delta \nu = \nu_{i+1} - \nu_i$, which would create an artificial opacity maximum of
-    $\frac{1}{\rho ct \frac{\nu_{i+1}-\nu_{i}}{\nu_{i}}}$.
+    For finite size frequency bins this process is done by estimating where inside the stopping
+    bin the photon reaches optical depth unity. This is needed because assigning the stopping
+    point to the edge of a frequency bin would make the minimum travel distance depend on the
+    chosen bin width, rather than on the line opacity inside the bin.
     
     Numerically, after discretizing the frequency, the stopping bin is found with the unsaturated
     optical depth by finding the first bin $j$ such that
@@ -218,23 +204,28 @@ opacity \sep  Rosseland mean \sep expansion opacity \sep bound-bound transitions
         \qquad
         \tau(\nu_j) - \tau(\nu_i) > 1
     \end{equation}
-    This choice is made with the unsaturated opacity because it identifies where the photon would
-    actually reach optical depth unity. The sub-bin position is then estimated with the saturated
-    opacity of bin $j$, which gives the effective contribution of the lines inside the finite bin.
-    If this saturated contribution is large enough to reach unity inside the bin, we use
+    Unsaturated opacity is used for this step because it identifies where the photon reaches true
+    optical depth unity; with saturated opacity alone, a strong line with $\tau \gg 1$ contributes
+    only $1-\exp(-\tau)$ and cannot set the stopping point by itself.
+    We then estimate the sub-bin stopping frequency in bin $j$ using the saturated opacity. If the
+    saturated optical depth in this bin can supply the remaining optical depth to unity, we use
     \begin{equation}
-        \Delta \nu_{\tau=1} = \nu_{j-1} - \nu_i + (\nu_j - \nu_{j-1})
-        \frac{1 - (\tau(\nu_{j-1})-\tau(\nu_i))}{\Delta\tau^{s}_j},
+        \begin{aligned}
+        \Delta\nu_{\tau=1,i} &= \nu_{j-1} - \nu_i + (\nu_j - \nu_{j-1})
+        \frac{1 - (\tau(\nu_{j-1})-\tau(\nu_i))}{\Delta\tau^{s}_j},\\
+        \nu_{\tau=1,i} &= \nu_i + \Delta\nu_{\tau=1,i}.
+        \end{aligned}
     \end{equation}
-    where $\Delta\tau^{s}_j$ is the optical depth of bin $j$ calculated from the saturated opacity.
-    If it is not large enough, we set $\Delta\nu_{\tau=1}=\nu_j-\nu_i$. When one bin alone determines
-    the opacity, we use the saturated opacity of that bin:
+    where $\Delta\tau^{s}_j$ is the saturated optical depth of bin $j$. Otherwise, if
+    $\Delta\tau^{s}_j < 1 - (\tau(\nu_{j-1})-\tau(\nu_i))$, we set
+    $\Delta\nu_{\tau=1,i}=\nu_j-\nu_i$.
+    The effective opacity is then calculated from $\Delta x_i = ct\ln(\nu_{\tau=1,i}/\nu_i)$. When a
+    single bin dominates, we instead use
     \begin{equation}
         \label{eq:kappa_eff}
-        \kappa_{eff}(\nu_i) = \frac{ \sum_l (1 - \exp(-\tau(\nu_l)))}{\rho ct \frac{\nu_{i+1}-\nu_{i}}{\nu_{i}}} + \kappa_{\mathrm{T}} + \kappa_{ff}(\nu_i)
+        \kappa_{\rm exp}(\nu_i) = \frac{ \sum_l (1 - \exp(-\tau(\nu_l)))}{\rho ct \ln(\nu_{i+1}/\nu_i)} + \kappa_{\mathrm{T}} + \kappa_{ff}(\nu_i)
     \end{equation}
-    This interpolation is approximate, but it avoids summing over all individual lines, which are
-    often orders of magnitude more numerous than the frequency bins. The result is accurate when
+    This interpolation is approximate, but it is accurate when
     $\Delta\tau \ll 1$ or $\Delta\tau \gg 1$. For the intermediate case, $\Delta\tau \sim 1$, it
     introduces a small error which should mostly cancel on average.
 
@@ -278,72 +269,69 @@ opacity \sep  Rosseland mean \sep expansion opacity \sep bound-bound transitions
         {\int \frac{\partial B_\nu(T)}{\partial T} d\nu}.
     \end{equation}
     where $B_\nu(T)$ is the Planck function.
-    In this section these averages are applied to the frequency-dependent opacities defined above,
-    including the effective expansion opacity.
+    When the Rosseland average is applied to the usual frequency-dependent opacity $\kappa_\nu$ we denote
+    the result by $\kappa_R$. When it is applied to the effective expansion opacity $\kappa_{\rm exp}$,
+    we denote the result by $\kappa_R^{\rm exp}$.
 
-    The main problem using the Rosseland opacity on the normal expansion opacity is that its BB contribution
-    converge to zero for infninte bin resultion.
-    \figref{fig:convergence} shows the convergence of the Rosseland mean opacity as a function of the
-    frequency resolution $\Delta\nu/\nu$ (equivalent to the number of frequency bins in logarithmic resolution)
-    for iron (Fe, Z=26) in top and erbium (Er, $Z = 68$) in bottom.
-    Iron is an iron-group element with an open d-shell, representative of the heavy material in
-    Type~Ia supernova ejecta. Erbium is a lanthanide with an open f-shell, which is common in
+    The main problem with applying the Rosseland mean directly to the expansion opacity is that zero-width
+    bound-bound lines cannot contribute to a frequency-integrated harmonic mean; numerically, this appears as
+    a vanishing bound-bound contribution as the frequency bins are refined.
+    \figref{fig:convergence} shows the convergence of the Rosseland mean opacities as a function of the
+    frequency resolution $\Delta\nu/\nu$ (for logarithmically spaced frequency bins)
+    for iron (Fe, $Z=26$) in top and erbium (Er, $Z = 68$) in bottom.
+    Iron is an iron-group element with an open d-block, representative of the heavy material in
+    Type~Ia supernova ejecta. Erbium is a lanthanide with an open f-block, which is common in
     kilonova compositions and gives a much larger bound-bound opacity than iron.
-    In \figref{fig:convergence} we plot the Rosseland mean of the old saturated expansion opacity 
-    (bin-by-bin use of \eqnref{eq:kappa_eff} with $(1 - \exp(-\tau(\nu_j)))$), 
-    the Rosseland mean of the effective expansion opacity (\eqnref{eq:kappa_eff}), and the Planck mean opacity.
-    The Planck mean is computed with the saturated expansion opacity on a 300-bin frequency grid and is nearly 
-    independent of the number of bins. 
-    Free-free and Thomson opacity are included so that the Planck and Rosseland means are comparable. 
+    In \figref{fig:convergence} we plot the ordinary Rosseland mean of the saturated expansion opacity,
+    $\kappa_R$, and the effective expansion Rosseland mean, $\kappa_R^{\rm exp}$.
 
     \begin{figure}[h]
     % How to create:
     % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
-    % python convergence_tests/plot_opac_vs_bins.py
-    % mv convergence_Fe_rho1.00e-12_t3.0days.png build_paper/figs/
-    %for Er, go to cluster
-    % cd /mnt/lbosm1/home/roeey/SN/expansion_opacity_calculation
+    % python convergence_tests/plot_opac_vs_bins.py --T 1.0 --png 1e-13 20.0
+    % mv convergence_Fe_rho1.00e-13_t20.0days.png build_paper/figs/
     % python plot_opac_vs_bins.py --composition Er --T 1.0 1e-12 1.0 --png
-    % (Er panel: produce convergence_Er_rho1.00e-12_t1.0days.png and copy to figs/)
-    % scp roeey@10.10.10.4:/home/roeey/LIGHTBITS/SN//expansion_opacity_calculation/convergence_Er_rho1.00e-12_t1.0days.png figs/
+    % mv convergence_Er_rho1.00e-12_t1.0days.png build_paper/figs/
     \centering
-    \includegraphics[width=\columnwidth]{figs/convergence_Fe_rho1.00e-12_t3.0days.png}\\[0.5em]
-    \includegraphics[width=\columnwidth]{figs/convergence_Er_rho1.00e-12_t1.0days.png}
-    \caption{Convergence of the Rosseland mean opacity vs. the frequency resolution in $\Delta\nu/\nu$. 
-    Top: iron for $\rho = 1 \times 10^{-12}$~g/cm$^3$, $T = 0.5$~eV, $t = 3$~days. 
+    \makebox[\columnwidth][c]{\includegraphics[width=1.0\columnwidth]{figs/convergence_Fe_rho1.00e-13_t20.0days.png}}\\[0.5em]
+    \makebox[\columnwidth][c]{\includegraphics[width=1.0\columnwidth]{figs/convergence_Er_rho1.00e-12_t1.0days.png}}
+    \caption{Convergence of the Rosseland mean opacities vs. the frequency resolution in $\Delta\nu/\nu$. 
+    Top: iron for Type~Ia-like conditions, $\rho = 1 \times 10^{-13}$~g/cm$^3$, $T = 1$~eV, $t = 20$~days. 
     Bottom: erbium (lanthanide, $Z = 68$); $\rho = 1 \times 10^{-12}$~g/cm$^3$, $T = 1$~eV, $t = 1$~day. 
-    In each panel: Rosseland mean of the saturated expansion opacity, Rosseland mean of the effective expansion opacity
-    and Planck mean opacity written in the legend.}
+    In each panel the blue solid curve is the ordinary Rosseland mean $\kappa_R$ of the saturated expansion opacity,
+    and the orange dashed curve is the effective expansion Rosseland mean $\kappa_R^{\rm exp}$.}
     \label{fig:convergence}
     \end{figure}
 
-    The results show that the expansion rosseland opacity is barely dependent on the frequency resolution
-    and gives converged Rosseland opacity even for low resolutions (large bins) such as 
+    The results show that $\kappa_R^{\rm exp}$ is barely dependent on the frequency resolution
+    and gives converged opacity even for low resolutions such as 
     $\Delta\nu/\nu \gtrsim 4\cdot 10^{-2}$ (which is equivalent to less than 200 bins for the full spectrum used).
     The reason the effective opacity gives correct results even for large bins is that the spectral lines are
     randomly distributed within each frequency bin. As long as the lines are randomly 
     distributed, \eqnref{eq:kappa_eff} provides a good approximation since it represents the typical distance
     a photon travels in a frequency bin. The fact that we observe good agreement between low-resolution and
-    high-resolution calculations for the effective expansion Rosseland mean opacity for both iron and erbium confirms 
-    that the line locations are indeed close enough to randomly distributed within the bins. 
+    high-resolution calculations for $\kappa_R^{\rm exp}$ for both iron and erbium confirms 
+    that the line locations are indeed close enough to randomly distributed within large bins. 
     This also offers a rationale for the accuracy of the results done with the artificial line-broadening
     prescription of Fontes et al.\ \cite{fontes2015opacity,fontes2017linesmeared}: 
     spreading line opacity over frequency is analogous to many narrow lines at random positions within
     a coarse bin, so either picture can yield similar cumulative opacity in the bin, 
     consistent with smeared Sobolev tables reproducing Monte Carlo transport \cite{fontes2020opacity}.
-    At low frequency resolution the Rosseland mean of the saturated expansion opacity is very close
-    to the Rosseland mean of the effective expansion opacity. This happens because, when one bin alone
-    determines the opacity, the effective expansion opacity is equivalent the saturated opacity of
-    that bin.
-
+    At low frequency resolution $\kappa_R$ of the saturated expansion opacity and
+    $\kappa_R^{\rm exp}$ are close because a single wide bin often sets the stopping distance. In that limit,
+    \eqnref{eq:kappa_eff} applies and the effective opacity is the same as the saturated opacity.
     Using the formalism formerly described, we calculated the opacity of materials for different times, 
     densities and temperatures and constructed opacity tables that can be used for simulations of type~Ia
     supernova and kilonova.
-    To mimic Type Ia ejecta, we used $^{56}$Ni and followed its decay chain,
+    To simulate Type~Ia supernova ejecta, we created two tables for two compositions.
+    The first for the outer layer of the supernova, which is a mixture of Silicon, Sulfur, Argon, and Calcium 
+    in the ratio of 0.535, 0.32, 0.062, and 0.083 respectively.
+    %Si: 0.535, S: 0.32, Ar: 0.062, Ca: 0.083
+    The second for the core of the supernova, which is a decay of $^{56}$Ni followed its decay chain,
     $^{56}{\rm Ni}\rightarrow{}^{56}{\rm Co}\rightarrow{}^{56}{\rm Fe}$, using the composition appropriate
     for each time window. We assumed the half-lives of 
     $t_{1/2}(^{56}{\rm Ni}) = 6.075$ days and $t_{1/2}(^{56}{\rm Co}) = 77.233$ days.
-    For the kilonova case we used a reduced mixture,
+    For the kilonova simulation we created a single table for a reduced mixture,
     $X_{34}=0.5$, $X_{44}=0.15$, $X_{52}=0.25$, and $X_{68}=0.1$.
     Kilonova ejecta contain many elements, so this mixture was chosen to represent the main
     $p$-, $d$-, and $f$-block contributions without calculating every species.
@@ -352,164 +340,324 @@ opacity \sep  Rosseland mean \sep expansion opacity \sep bound-bound transitions
     represent the $p$-block, Ru ($Z=44$) the $d$-block, and Er ($Z=68$) the $f$-block.
     Within each block we selected elements with relatively large abundance.
 
-    Since the Rosseland mean opacity is problematic to define for expansion opacity, previous works often
+    Each table stores, at every $(T,\rho,t)$, $\kappa_R^{\rm exp}$, $f_{\rm abs}$,
+    $\kappa_P^{\rm abs}$, and $\kappa_P^{\rm tot}$.
+    The fraction $f_{\rm abs}$ is the Rosseland mean of
+    $\kappa_{\rm abs}/(\kappa_{\rm abs}+\kappa_{\rm scat})$ with
+    $\kappa_{\rm abs}=\kappa_{\rm exp}-\kappa_{\rm T}$ and $\kappa_{\rm scat}=\kappa_{\rm T}$,
+    \begin{equation}
+        f_{\rm abs} =
+        \frac{\int \frac{\kappa_{\rm abs}}{\kappa_{\rm abs}+\kappa_{\rm scat}}
+        \frac{\partial B_\nu}{\partial T}\,d\nu}
+        {\int \frac{\partial B_\nu}{\partial T}\,d\nu}.
+    \end{equation}
+    In transport we use $\kappa_R^{\rm abs}=f_{\rm abs}\,\kappa_R^{\rm exp}$ and
+    $\kappa_R^{\rm scat}=(1-f_{\rm abs})\,\kappa_R^{\rm exp}$: absorption deposits energy and
+    re-emits the packet (IMC), while scatter only redirects it.
+    The Planck mean $\kappa_P^{\rm abs}$ is taken from saturated absorption,
+    $\kappa_{\rm sat}-\kappa_{\rm T}$, and sets the cell temperature from the deposited energy;
+    $\kappa_P^{\rm tot}$ is stored only for comparison with $\kappa_R^{\rm exp}$.
+
+    Since the ordinary Rosseland mean opacity is problematic to define for expansion opacity, previous works
+    \cite{deprince2024kilonova,just2022properties,tanaka2020systematic} often
     used the Planck mean opacity to compare the opacity of different compositions in different temperatures.
-    We check how well the Planck and the effective expansion Rosseland means are correlated by comparing
-    their trends and their
-    ratio as functions of temperature and density. \figsref{fig:rosseland_planck_ni}{fig:rosseland_planck_kilonova}
-    show the Rosseland mean, Planck mean, and their ratio for
-    nickel 56 decay chain and kilonova composition.
-    In both compositions the Rosseland and Planck means usually decrease with density but their
-    ratio vary between 1 to 30 and depends on the density and temperature. This means that the Planck mean opacity
-    is not strongly correlated with the effective expansion Rosseland mean opacity.
+    We compare $\kappa_R^{\rm exp}$ to the Planck mean through their
+    ratio as a function of temperature and density.
+    For consistency in this comparison we use the Planck mean of the total saturated opacity,
+    $\kappa_P^{\rm tot}$, including Thomson scattering, so that both means contain the same physical
+    processes and the ratio tests how much the frequency weighting differs rather than whether
+    scattering is included in one mean but not the other.
+    \figref{fig:rosseland_planck_ni},
+    \figref{fig:rosseland_planck_sn1a_outer}, and \figref{fig:rosseland_planck_kilonova}
+    show $\kappa_R^{\rm exp}$ and the ratio $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ for
+    the $^{56}{\rm Ni}$ decay chain, Type~Ia outer-layer composition, and kilonova composition.
+    For the Ni-rich core and kilonova compositions the ratio varies approximately between 1 and 30
+    and depends on density and temperature, so $\kappa_P^{\rm tot}$ is not strongly correlated
+    with $\kappa_R^{\rm exp}$.
+    For the Type~Ia outer-layer composition (Si, S, Ar, Ca) the ratio stays between about 1 and 2
+    over the plotted density range ($10^{-14}$--$10^{-10}$~g/cm$^3$).
+    In this regime the opacity is dominated by Thomson scattering and free-free absorption,
+    which depend only weakly on frequency, so the two averaging schemes give similar results.
+    \figsref{fig:kappa_slice_T}{fig:kappa_slice_rho} show one-dimensional slices of $\kappa_R^{\rm exp}$
+    for the Type~Ia outer-layer and kilonova compositions.
+    The kilonova opacity is larger than the Type~Ia opacity over most of the plotted range,
+    especially at low density and high temperature, because of the stronger bound-bound contribution
+    from the heavier elements.
+    For both compositions the opacity generally decreases with density, while the temperature dependence
+    is weaker for the Type~Ia composition and stronger for the kilonova composition.
 
-    \iffalse
-    To get an estimation on the time dependecy,
-    we show in \figsref{fig:opac_rho_T}{fig:opac_rhot_T} for $^{56}$Ni the effective expansion Rosseland mean opacity 
-    at three different times (1, 10, and 100 days) as a function of temperature and density (\figref{fig:opac_rho_T})
-    and as a function of temperature and the product $\rho \cdot t$ (\figref{fig:opac_rhot_T}).
-    It is apperent that the opacity decreases with time in a similar way to its decay with density,
-    as expected for bound-bound transitions in expanding media. The $\rho \cdot t$ representation is more 
-    natural for expanding media and better illustrates how the opacity scales with the expansion parameter.
-    
-
-    The opacity behavior shown in \figsref{fig:opac_rho_T}{fig:opac_rhot_T} can be understood
-    from the expansion opacity formalism. From \eqnref{eq:kappa_eff_simple}, the effective opacity is
-    $\kappa = 1/(ct \rho \Delta\nu/\nu)$. 
-    For bound-bound dominated frequencies, photon absorption is mainly limited by saturated lines, 
-    which will absorb the photon regardless of the 
-    density or time since $\tau \gg 1$. In this regime, $\Delta\nu/\nu$ is approximately constant, and therefore 
-
-    $\kappa \sim 1/(\rho \cdot t)$.
-
-    However, the opacity shown in the figures deviates significantly from this simple scaling for several reasons. Firstly, the 
-    bound-bound contribution is only important for certain frequency ranges, while at other frequencies free-free and Thomson 
-    scattering dominate the opacity. Secondly, the Saha equation solution depends on density, and therefore the ionization fraction 
-    changes with density, affecting the bound-bound line strengths. Thirdly, the time evolution changes the composition 
-    ($^{56}$Ni to $^{56}$Co to $^{56}$Fe), which has slightly different opacities. These effects combine to produce 
-    the complex behavior observed in the opacity maps.
-    Still, the $\rho \cdot t$ representation in \figref{fig:opac_rhot_T} shows less time sensitivity than \figref{fig:opac_rho_T} 
-    because the time dependence is largely absorbed into the scaling parameter, making the opacity behavior more uniform across 
-    different times.
-
-    We note that the Planck mean opacity used in expansion-opacity work is usually evaluated with the same saturation factor
-    $1 - \exp(-\tau)$ as in Monte Carlo line interaction, because bound-bound absorption contributes to the total opacity in that
-    saturated form rather than as the raw line opacity alone.
-
-        \begin{figure}[h]
-    \centering
-    \includegraphics[width=\columnwidth]{figs/opac_map_rho_T/t_1days.png}\\[0.35em]
-    \includegraphics[width=\columnwidth]{figs/opac_map_rho_T/t_10days.png}\\[0.35em]
-    \includegraphics[width=\columnwidth]{figs/opac_map_rho_T/t_100days.png}
-    \caption{Effective expansion Rosseland mean opacity for nickel as a function of temperature and density at t = 1, 10, and 100 days 
-    (from top to bottom). The opacity is calculated using the expansion opacity formalism described in \secref{SecExpansion}.}
-    \label{fig:opac_rho_T}
-    \end{figure}
-
-
-
-    \begin{figure}[h]
-    \centering
-    \includegraphics[width=\columnwidth]{figs/opac_map_rhot_T/t_1days.png}\\[0.35em]
-    \includegraphics[width=\columnwidth]{figs/opac_map_rhot_T/t_10days.png}\\[0.35em]
-    \includegraphics[width=\columnwidth]{figs/opac_map_rhot_T/t_100days.png}
-    \caption{Effective expansion Rosseland mean opacity for nickel as a function of temperature and $\rho \cdot t$ at t = 1, 10, and 100 days 
-    (from top to bottom). The $\rho \cdot t$ parameter is more natural for expanding media and better illustrates the scaling 
-    behavior of expansion opacity.}
-    \label{fig:opac_rhot_T}
-    \end{figure}
-    \clearpage
-
-    \fi
-
-    \begin{figure}[h]
+\begin{figure*}[t]
         % How to create (run from python_opac_calc2):
         % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
-        % python plot_opac_cont.py -d opac_libs/Ni_table -t 10 -yl 1e-16 1e-11 -c 1e-3 10 --planck-rosseland --png
-        % cp t_10days_rosseland.png t_10days_planck.png t_10days_ratio.png <build_paper>/figs/ as ni_rosseland_t10d.png, sn1a_planck_t10d.png, sn1a_ratio_t10d.png
+        % python plot_opac_cont.py -d opac_libs/NiCoFe -t 10 -c 5e-3 0.2 --planck-rosseland --png -yl 1e-14 1e-10
+        % mv t_10days_ratio.png build_paper/figs/ni_ratio_t10d.png
+        % mv t_10days_rosseland.png build_paper/figs/ni_rosseland_t10d.png
         \centering
-        \includegraphics[width=\columnwidth]{figs/ni_rosseland_t10d.png}\\[0.35em]
-        \includegraphics[width=\columnwidth]{figs/ni_planck_t10d.png}\\[0.35em]
-        \includegraphics[width=\columnwidth]{figs/ni_ratio_t10d.png}
-        \caption{Type~Ia supernova composition at $t=10$~days: Rosseland mean (top), Planck mean (middle), and $\kappa_P/\kappa_R$ ratio (bottom).
-        Density $10^{-16}$--$10^{-11}$~g/cm$^3$, contour limits $\kappa \in [10^{-3}, 10]$~cm$^2$/g.}
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=0.48\textwidth]{figs/ni_rosseland_t10d.png}\hspace{0.02\textwidth}%
+        \includegraphics[width=0.48\textwidth]{figs/ni_ratio_t10d.png}}
+        \caption{Type~Ia core composition at $t=10$~days: $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right).
+        Density $10^{-14}$--$10^{-10}$~g/cm$^3$.}
         \label{fig:rosseland_planck_ni}
-        \end{figure}
+\end{figure*}
 
+\begin{figure*}[t]
+        % How to create (run from python_opac_calc2):
+        % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
+        % python plot_opac_cont.py -d opac_libs/SN1A_table -t 10 -c 5e-3 0.2 --planck-rosseland --png -yl 1e-14 1e-10
+        % mv t_10days_ratio.png build_paper/figs/sn1a_outer_ratio_t10d.png
+        % mv t_10days_rosseland.png build_paper/figs/sn1a_outer_rosseland_t10d.png
+        \centering
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=0.48\textwidth]{figs/sn1a_outer_rosseland_t10d.png}\hspace{0.02\textwidth}%
+        \includegraphics[width=0.48\textwidth]{figs/sn1a_outer_ratio_t10d.png}} 
+        \caption{Type~Ia outer-layer composition at $t=10$~days: $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right).
+        The composition is Si, S, Ar, and Ca with mass fractions 0.535, 0.32, 0.062, and 0.083.
+        Density $10^{-14}$--$10^{-10}$~g/cm$^3$. The ratio stays near unity because the opacity is dominated by Thomson scattering and free-free absorption.}
+        \label{fig:rosseland_planck_sn1a_outer}
+\end{figure*}
 
-    \begin{figure}[h]
+\begin{figure*}[t]
     % How to create (run from python_opac_calc2):
     % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
     % python plot_opac_cont.py -d opac_libs/kilonova_table_SeTe -t 1 -yl 1e-14 1e-9 -c 1e-3 10 --planck-rosseland --png
-    % cp t_1days_rosseland.png t_1days_planck.png t_1days_ratio.png <build_paper>/figs/ as kilonova_rosseland_t1d.png, kilonova_planck_t1d.png, kilonova_ratio_t1d.png
+    % cp t_1days_rosseland.png t_1days_ratio.png $BUILD_PAPER/figs/ as kilonova_rosseland_t1d.png, kilonova_ratio_t1d.png
     \centering
-    \includegraphics[width=\columnwidth]{figs/kilonova_rosseland_t1d.png}\\[0.35em]
-    \includegraphics[width=\columnwidth]{figs/kilonova_planck_t1d.png}\\[0.35em]
-    \includegraphics[width=\columnwidth]{figs/kilonova_ratio_t1d.png}
-    \caption{Kilonova composition at $t=1$~day: Rosseland mean (top), Planck mean (middle), and $\kappa_P/\kappa_R$ ratio (bottom). 
-    Density $10^{-14}$--$10^{-9}$~g/cm$^3$, contour limits $\kappa \in [10^{-3}, 10]$~cm$^2$/g.}
+    \makebox[\textwidth][c]{%
+    \includegraphics[width=0.48\textwidth]{figs/kilonova_rosseland_t1d.png}\hspace{0.02\textwidth}%
+    \includegraphics[width=0.48\textwidth]{figs/kilonova_ratio_t1d.png}}
+    \caption{Kilonova composition at $t=1$~day: $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right). 
+    Density $10^{-14}$--$10^{-9}$~g/cm$^3$.}
     \label{fig:rosseland_planck_kilonova}
-    \end{figure}
+\end{figure*}
+
+\begin{figure}[t]
+    % How to create (run from python_opac_calc2):
+    % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
+    % python plot_kilonova_kappa_slices.py --png -o ~/Documents/PHD/URILIGHT/python_opac_calc/clean_ver/build_paper/figs
+    \centering
+    \includegraphics[width=\columnwidth]{figs/type1_kilonova_kappa_vs_T.png}
+    \caption{Effective expansion Rosseland mean, $\kappa_R^{\rm exp}$, as a function of temperature for fixed
+    densities $\rho=10^{-14}$ and $10^{-12}$~g/cm$^3$.
+    The plotted table times are $t=1$~day for Type~Ia and $t=1.35721$~days for the kilonova.
+    Type~Ia outer-layer composition is shown in blue and kilonova composition in orange.
+    Dark and light curves correspond to the lower and higher density, respectively.}
+    \label{fig:kappa_slice_T}
+\end{figure}
+
+\begin{figure}[t]
+    % How to create (run from python_opac_calc2):
+    % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
+    % python plot_kilonova_kappa_slices.py --png -o ~/Documents/PHD/URILIGHT/python_opac_calc/clean_ver/build_paper/figs
+    \centering
+    \includegraphics[width=\columnwidth]{figs/type1_kilonova_kappa_vs_rho.png}
+    \caption{Effective expansion Rosseland mean, $\kappa_R^{\rm exp}$, as a function of density for fixed
+    temperatures $T=0.5$ and $1$~eV.
+    The plotted table times are $t=1$~day for Type~Ia and $t=1.35721$~days for the kilonova.
+    Type~Ia outer-layer composition is shown in blue and kilonova composition in orange.
+    Dark and light curves correspond to the lower and higher temperature, respectively.}
+    \label{fig:kappa_slice_rho}
+\end{figure}
 
 
-    \clearpage
+%    \clearpage
 
 
+\section{Simulations With Single Group Opacity Tables}
+\label{SecRadiationSimulations}
 
+    We performed radiation transport simulations to test the effective expansion Rosseland opacity model.
+    The simulations were performed using URILIGHT \cite{urilightCode,urilight1,urilight2}, a Monte Carlo
+    radiative transfer code written by Elbaz et al.\ and designed for supernova ejecta.
+    For this work we made several modifications to the code, including support for
+    Rosseland and Planck mean opacity tables and related changes needed for the simulations
+    presented here.
+    With permission from the code writers, we published the modified version in a Git
+    repository (\url{https://github.com/roee2000/Urilight_SN}).
+    The Type~Ia supernova model is one-dimensional and spherically
+    symmetric and contains 100 cells in homologous expansion. The ejecta has two composition layers: an inner
+    $0.98~M_\odot$ layer of $^{56}{\rm Ni}$ and an outer $0.4~M_\odot$ layer of Si, S, Ar, and Ca.
+    The simulation starts at $t=2$~days and ends at $t=80$~days with 100 logarithmic time steps.
 
-\section{Validation}
-\label{SecValidation}
+    Energy is deposited by the $^{56}{\rm Ni}\rightarrow{}^{56}{\rm Co}\rightarrow{}^{56}{\rm Fe}$
+    decay chain. Gamma-rays and positrons are transported at the beginning of the calculation, and their
+    deposited energy is saved for each cell and time step. In the radiation transport stage, new optical
+    photon packets are emitted according to the fraction of the total gamma-ray and positron energy
+    deposited in each cell. Existing photon packets are propagated with effective scattering: when a
+    packet is absorbed it is not removed, but is re-emitted with a frequency sampled according to the local cell
+    emission spectrum.
 
-    Monte Carlo radiative transfer simulations using the new Rosseland mean opacity calculated from the $\tau=1$ window algorithm 
-    yield results similar to full frequency-group calculations. The simulations were performed using URILIGHT \cite{urilight1,urilight2}, 
-    an open-source Monte Carlo radiative transfer code designed for supernova ejecta. URILIGHT solves the time-dependent radiative 
-    transfer equation in expanding media using a Monte Carlo approach, tracking photon packets through the ejecta and accounting 
-    for bound-bound, free-free and thomson opacity sources.
+    The kilonova simulation uses a one-dimensional ejecta profile with total mass $0.05~M_\odot$
+    and 32 cells, from $t=0.05$ days to
+    $t=15$ days with 55 time steps. The composition is uniform and contains Se, Ru, Te, and Er with mass
+    fractions 0.5, 0.15, 0.25, and 0.1, respectively. Instead of a radioactive decay chain, the heating is
+    an external power law per unit mass \cite{korobkin2012kilonova},
+    $\dot{\epsilon}=10^{10}(t/1~{\rm day})^{-1.3}~{\rm erg~s^{-1}~g^{-1}}$.
 
-    In \figref{fig:comparison} we compare the results of the new Rosseland mean opacity to the full frequency-group calculations. 
-    We performed two types of simulations. The first uses 100 cells with an exponential decay density profile, representing 
-    a more realistic supernova structure. This simulation shows reasonable but not perfect agreement (approximately 25\% deviation) 
-    with the full frequency-group calculations. The discrepancy arises because as the temperature decreases from the center of the 
-    supernova toward the outer regions, photons emitted in the center have a higher probability of being absorbed, since the opacity 
-    to high frequencies is generally higher. This effect is not captured in the gray simulation because the gray formalism does not 
-    account for temperature gradients.
+    In the full frequency-group calculation, photon packets keep their frequency and interact with the
+    frequency-dependent opacity groups. For that, at each time step the simulation calculates the ionization stages 
+    of each material and goes through all bound-bound lines to calculate the opacity for that temperature and density. 
+    In the single-group calculation, the photon mean free path is set by $\kappa_R^{\rm exp}$,
+    interpolated from the opacity table using local $(T,\rho,t)$.
+    The table value $f_{\rm abs}$ splits this into absorbing and scattering Rosseland means
+    ($\kappa_R^{\rm abs}$ and $\kappa_R^{\rm scat}$) as described above.
+    The cell temperature is determined by requiring the emitted energy to match the
+    deposited energy; for this step we use $\kappa_P^{\rm abs}$, the Planck mean of the saturated
+    absorption opacity.
 
-    To test this hypothesis, we performed a second simulation using a single cell with a single temperature. For this case, the gray 
-    model shows much better agreement with the full frequency-group calculations, confirming that the gray formalism works well when 
-    temperature gradients are absent. This demonstrates that the averaging process successfully captures 
-    the essential physics of expansion opacity, at least for the case of constant temperature.
+    The ejecta geometries used for the validation are shown in \figref{fig:ejecta_geometry}. 
+    Both simulations are one-dimensional homologous expansions, so the spatial coordinate can be
+    represented by the velocity coordinate $r=vt$. 
+    The Type~Ia model uses an exponential density profile matching the W7 model \cite{nomoto1984w7},
+    $\rho \propto t^{-3}\exp(-v/v_e)$, with $v_e=2.7\times10^8~{\rm cm~s^{-1}}$ ($0.009c$) and
+    an outer edge at $0.093c$. The kilonova model uses a flat profile $\rho=\rho_0$ for $v<0.1c$ and
+    $\rho=\rho_0(v/0.1c)^{-4}$ for $0.1c<v<0.4c$, with $\rho_0$ set so the total mass is
+    $0.05~M_\odot$. The $v^{-4}$ outer slope follows the ejecta-density consideration in
+    \cite{hotokezaka2020macronova}.
 
     \begin{figure}[h]
+    % How to create (run from paper1/urilight):
+    % cd ~/Documents/PHD/URILIGHT/paper1/urilight
+    % python kilonova/make_ejecta_profile.py --nc1 32 --m_msun 0.05 --output_ejecta /tmp/kilonova_ejecta_profile
+    % python plot_ejecta_geometry_paper.py --png  ~/Documents/PHD/URILIGHT/python_opac_calc/clean_ver/build_paper/figs/ejecta_geometry.png
     \centering
-    \includegraphics[width=0.48\textwidth]{figs/opacity_comparison.png}
-    \caption{Comparison of Monte Carlo radiative transfer results using the new Rosseland mean opacity (from $\tau=1$ window 
-    algorithm) versus full frequency-group calculations. Left: 100-cell simulation with exponential density profile showing 
-    approximately 25\% deviation. Right: single-cell simulation with uniform temperature showing excellent agreement. The 
-    discrepancy in the multi-cell case arises from temperature gradients, which the gray formalism does not account for.}
+    \includegraphics[width=0.48\textwidth]{figs/ejecta_geometry.png}
+    \caption{Density profiles of the Type~Ia and kilonova ejecta at $t=1$ day. The simulations assume
+    spherical homologous expansion, so each shell keeps a fixed velocity and its radius grows as $r=vt$.
+    The Type~Ia model is centrally concentrated and slower, while the kilonova model occupies faster,
+    lower-density ejecta.}
+    \label{fig:ejecta_geometry}
+    \end{figure}
+
+    \figref{fig:comparison} compares the light curves obtained with the single-group calculation,
+    using $\kappa_R^{\rm exp}$, to the full frequency-group calculation for both ejecta
+    models. The one-group and multigroup results follow the same qualitative trends in both cases,
+    showing that the averaged opacity captures the main transport behavior while avoiding the cost of
+    recalculating the full frequency-dependent opacity during the transport calculation.
+
+    \begin{figure}[h]
+    % How to create (run from paper1/urilight):
+    % cd ~/Documents/PHD/URILIGHT/paper1/urilight
+    % python plot_luminosity_paper.py --png  ~/Documents/PHD/URILIGHT/python_opac_calc/clean_ver/build_paper/figs/luminosity_models.png
+    \centering
+    \includegraphics[width=0.48\textwidth]{figs/luminosity_models.png}
+    \caption{Bolometric luminosity from the Type~Ia and kilonova validation simulations. For each ejecta
+    model we compare the single-group calculation using $\kappa_R^{\rm exp}$ with the
+    corresponding full frequency-group calculation.}
     \label{fig:comparison}
     \end{figure}
 
-    % Figure was created on the cluster:
-    % python plot_lum_with_deposition.py 
-    % and copied here by:
-    % scp roeey@10.10.10.4:/home/roeey/LIGHTBITS/SN/urilight/exp/kilonova/KN_comp1/4mats/faster/more_phot/more_time/luminosity_with_deposition.png  figs/
-    \figref{fig:luminosity_kilonova} shows the same comparison as \figref{fig:comparison} for kilonova ejecta: Monte Carlo radiative transfer with the new Rosseland mean opacity versus full frequency-group calculations.
+    \figref{fig:trad_vs_phot} compares the radiation temperature measured from escaping packets in
+    the multigroup Type~Ia calculation to the plasma temperature at the effective photospheric
+    surface in the single-group calculation. The single-group calculation recovers the multigroup
+    $T_{\rm rad}$ well. We show two choices for the effective path factor, $f=1$ and $f=3$, to bracket
+    the geometrical uncertainty. At early times, when $\tau_{\rm abs}\ll\tau_{\rm scat}$, photons
+    undergo many scatterings and the escape problem is closer to the three-dimensional diffusion
+    limit. At late times, when $\tau_{\rm abs}\sim1$, the last absorption surface is closer to the
+    one-dimensional radial limit.
 
     \begin{figure}[h]
+    % How to create:
+    % cd ~/Documents/PHD/URILIGHT/paper1/urilight/type1a/add_Trad/mg
+    % python plot_compare_trad_tau1.py --png ~/Documents/PHD/URILIGHT/python_opac_calc/clean_ver/build_paper/figs/trad_vs_phot.png
+    % Script path from python_opac_calc2:
+    % urilight/type1a/add_Trad/mg/plot_compare_trad_tau1.py
     \centering
-    \includegraphics[width=0.48\textwidth]{figs/luminosity_with_deposition.png}
-    \caption{Same layout as \figref{fig:comparison} for kilonova ejecta: comparison of luminosity (with energy deposition) from Monte Carlo simulations using the new Rosseland mean opacity versus full frequency-group calculations.}
-    \label{fig:luminosity_kilonova}
+    \includegraphics[width=0.48\textwidth]{figs/trad_vs_phot.png}
+    \caption{Radiation temperature in the Type~Ia validation simulation. The blue curve shows
+    the multigroup URILIGHT escape-averaged $T_{\rm rad}$. The red curves show the single-group
+    plasma temperature at $\tau_{\rm abs}(1+\tau_{\rm scat})=1$, using path factors $f=1$ and
+    $f=3$.}
+    \label{fig:trad_vs_phot}
     \end{figure}
+
+    \figref{fig:profile_colormap} maps $T_{\rm plasma}$ and $\kappa_R^{\rm exp}$ in the Type~Ia
+    validation simulation on the $(v,t)$ grid. The temperature is taken from the URILIGHT profiles.
+    The opacity in each cell is interpolated from the precomputed NiCoFe and SN1A tables using local
+    $(T,\rho,t)$, with $\rho$ from homologous expansion and the ejecta geometry. The Ni/IME boundary
+    is marked by a black dashed line. With time, the ejecta cools and the outer layers become more
+    transparent.
+
+    On the opacity panel, the red curve is the $\tau=1$ surface: at each $t$ we integrate inward from
+    the outer edge until $\int \kappa_R^{\rm exp}\,\rho\,dR_{\rm eff}=1$, where each velocity shell has
+    radial thickness $\Delta R_i = t\,\Delta v_i$. Because photons diffuse isotropically in three
+    dimensions, we use an effective path $\Delta R_{\rm eff}=3\,\Delta R$ when evaluating the
+    opacity integral in this spherical geometry.
+
+    The cyan dashed curve marks where the random-walk photon leakage time equals the dynamical time,
+    $t_{\rm phot}=t$. Using the same inward integration, the cumulative optical depth to shell $i$ is
+    $\tau_i=\tau_{i+1}+\kappa_{R,i}^{\rm exp}\,\rho_i\,\Delta R_{{\rm eff},i}$, with $\tau=0$ at the
+    outer edge.
+    A diffusing photon does not cross a shell once: each scatter can send it back, so on average it
+    traverses the thickness $(2\tau_i+1)$ times before leaking outward.
+    Each traversal takes time $\Delta R_i/c$, so
+    \begin{equation}
+        \Delta t_i = \frac{(2\tau_i+1)\,\Delta R_i}{c}.
+    \end{equation}
+    Starting from the outer edge and accumulating inward, we locate the velocity where
+    $t_{\rm phot}=t$. Together, the two curves mark the last-scattering surface and the diffusion
+    depth relevant at time $t$.
+
+    \begin{figure*}[t]
+    % How to create:
+    % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
+    % python plot_profile_colormap.py --png ~/Documents/PHD/URILIGHT/python_opac_calc/clean_ver/build_paper/figs/profile_colormap.png
+    % compare f=1, sqrt(3), 3: add --compare-dreff
+    \centering
+    \includegraphics[width=\textwidth]{figs/profile_colormap.png}
+    \caption{$T_{\rm plasma}$ (left) and $\kappa_R^{\rm exp}$ (right) in the Type~Ia validation
+    simulation. The black dashed line marks the Ni/IME boundary. 
+    On the opacity map, the red and cyan curves show the $\tau=1$ surface and the
+    $t_{\rm phot}=t$ surface (see text).}
+    \label{fig:profile_colormap}
+    \end{figure*}
+
+\subsection{Runtime Advantage of Single-Group Transport}
+
+    The single-group calculation is faster for three main reasons. First, each photon packet
+    samples a Rosseland-mean transport opacity, so fewer packets are needed to obtain a stable
+    estimate of the frequency-averaged energy transport. In a multigroup calculation, the same
+    average behavior is recovered only statistically from packets distributed over frequency,
+    which requires more packets to reduce numerical noise. Second, each packet propagation is
+    cheaper. In a line-rich multigroup calculation, photons can repeatedly redshift into dense
+    groups of bound-bound lines, be absorbed after very short path lengths, and be re-emitted
+    until they enter a more transparent frequency window. These repeated short propagation
+    steps add many microsteps inside a single time step. The single-group calculation replaces
+    this behavior with an averaged mean free path, so packet histories contain fewer, more
+    uniform transport steps. Third, the multigroup calculation must recompute the
+    frequency-dependent opacity for every cell from its local $(T,\rho,t)$ by going through the
+    bound-bound line list of the material. The single-group calculation instead interpolates
+    one value from a precomputed opacity table.
+
+    The speedup depends on which part of the multigroup calculation is the bottleneck.
+    For lanthanide-rich kilonova ejecta, where photon transport through many bound-bound lines
+    can dominate the runtime, the single-group calculation can be about 30 times faster and has
+    significantly smaller numerical noise for the same number of packets. In cases where the main
+    multigroup cost is recalculating the opacity itself, the gain can be even larger; for example,
+    the Type~Ia calculation shown in \figref{fig:comparison} was about 100 times faster in the
+    single-group calculation. This advantage is strongest when the same composition is used many
+    times, since the opacity table can be reused. If many different compositions must be explored,
+    a separate table has to be built for each composition, and this preprocessing can itself require
+    significant runtime.
 
 \section{Summary}
 \label{SecSummary}
 
-We have presented a new algorithm for calculating Rosseland mean opacity that accounts for expansion opacity effects from 
-bound-bound atomic transitions. The method uses a $\tau=1$ window to smooth the frequency-dependent opacity, with the smoothed 
-value calculated as $\kappa = 1/(\rho \Delta x)$ where $\Delta x$ is the path length to reach optical depth unity. Validation 
-through Monte Carlo simulations confirms that this approach captures the essential physics while enabling efficient gray 
-opacity calculations.
+We defined the effective expansion opacity, $\kappa_{\rm exp}$, for media in
+homologous expansion. The opacity is defined from the average distance an outward travelling photon
+needs to reach optical depth unity, $\kappa_{\rm exp} = 1/(\rho \Delta x)$.
+Taking the Rosseland mean of $\kappa_{\rm exp}$ gives $\kappa_R^{\rm exp}$, which is not dependent on the frequency resolution.
+We showed this for both iron and erbium, representing iron-group Type~Ia material and lanthanide-rich kilonova
+material. We also compared $\kappa_R^{\rm exp}$ with the Planck mean opacity for
+Type~Ia core, Type~Ia outer-layer, and kilonova compositions. The ratio between the two depends
+strongly on temperature and density, showing that the Planck mean is not a reliable replacement for
+$\kappa_R^{\rm exp}$.
+
+Finally, we tested single-group radiation transport simulations using the new opacity tables in
+URILIGHT. The single-group light curves reproduce the main behavior of full frequency-group
+calculations for both Type~Ia supernova and kilonova ejecta. The remaining differences are expected
+because a gray treatment cannot capture all effects of temperature gradients and frequency-dependent
+transport.
 
 The Python code for building opacity tables using this algorithm is available at 
 \url{https://github.com/roee2000/expansion_opacity_calculation}.

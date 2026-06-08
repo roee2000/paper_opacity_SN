@@ -40,21 +40,58 @@ M.~Tanaka, D.~Kato, G.~Gaigalas, K.~Kawaguchi,
   \href{https://doi.org/10.3847/1538-4357/ab76ba}{Systematic Opacity
   Calculations for Kilonovae}, The Astrophysical Journal 891~(2) (2020) 143.
 
+\bibitem{eastmanpinto1993}
+R.~G. Eastman, P.~A. Pinto, Spectrum formation in supernovae: Numerical
+  techniques, The Astrophysical Journal 412 (1993) 731.
+\newblock \href {https://doi.org/10.1086/172957} {\path{doi:10.1086/172957}}.
+
 \bibitem{kurucz1995}
 R.~L. Kurucz, B.~Bell, Atomic line list (1995).
 
 \bibitem{nistASD}
 {Kramida, A.}, {Ralchenko, Yu.}, {Reader, J.}, {NIST ASD Team},
-  \href{https://physics.nist.gov/asd}{NIST Atomic Spectra Database}, national
+  \href{https://physics.nist.gov/asd}{NIST Atomic Spectra Database}, {National}
   Institute of Standards and Technology, Gaithersburg, MD; version 5.11 (2024).
 
+\bibitem{urilightCode}
+Y.~Elbaz, \href{https://ascl.net/2209.012}{{URILIGHT}: {Time-dependent
+  Monte-Carlo} radiative-transfer}, Astrophysics Source Code Library,
+  ascl:2209.012 (2022).
+\newline\urlprefix\url{https://ascl.net/2209.012}
+
 \bibitem{urilight1}
-Y.~Elbaz, et~al., \href{https://arxiv.org/abs/1711.00969}{URILIGHT: A New Code
-  for Radiation Transport in Supernovae}, arXiv preprint arXiv:1711.00969
-  (2017).
+N.~Wygoda, Y.~Elbaz, B.~Katz, Type {Ia} supernovae have two physical
+  width-luminosity relations and they favour sub-{Chandrasekhar} and direct
+  collision models - {I}. {Bolometric}, Monthly Notices of the Royal
+  Astronomical Society 484 (2019).
+\newblock \href {https://doi.org/10.1093/mnras/stz145}
+  {\path{doi:10.1093/mnras/stz145}}.
 
 \bibitem{urilight2}
-Y.~Elbaz, et~al., \href{https://arxiv.org/abs/1805.06907}{URILIGHT: Radiation
-  Transport Code for Supernovae}, arXiv preprint arXiv:1805.06907 (2018).
+N.~Wygoda, Y.~Elbaz, B.~Katz, Type {Ia} supernovae have two physical
+  width-luminosity relations and they favour sub-{Chandrasekhar} and direct
+  collision models - {II}. {Colour} evolution, Monthly Notices of the Royal
+  Astronomical Society 484 (2019).
+\newblock \href {https://doi.org/10.1093/mnras/stz146}
+  {\path{doi:10.1093/mnras/stz146}}.
+
+\bibitem{korobkin2012kilonova}
+O.~Korobkin, S.~Rosswog, A.~Arcones, C.~Winteler, On the astrophysical
+  robustness of the neutron star merger r-process, Monthly Notices of the Royal
+  Astronomical Society 426~(3) (2012) 1940--1949.
+\newblock \href {https://doi.org/10.1111/j.1365-2966.2012.21872.x}
+  {\path{doi:10.1111/j.1365-2966.2012.21872.x}}.
+
+\bibitem{nomoto1984w7}
+K.~Nomoto, F.-K. Thielemann, K.~Yokoi, Accreting white dwarf models of type {I}
+  supernovae. {III}. carbon deflagration supernova, The Astrophysical Journal
+  286 (1984) 644.
+\newblock \href {https://doi.org/10.1086/162645} {\path{doi:10.1086/162645}}.
+
+\bibitem{hotokezaka2020macronova}
+K.~Hotokezaka, E.~Nakar, Radioactive heating rate of {r}-process elements and
+  macronova light curve, The Astrophysical Journal 891~(2) (2020) 152.
+\newblock \href {https://doi.org/10.3847/1538-4357/ab764d}
+  {\path{doi:10.3847/1538-4357/ab764d}}.
 
 \end{thebibliography}
