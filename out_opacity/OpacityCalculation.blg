@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: out_opacity/OpacityCalculation.aux
 The style file: elsarticle-num.bst
 Database file #1: refs.bib
-You've used 15 entries,
+You've used 23 entries,
             2952 wiz_defined-function locations,
-            757 strings with 8329 characters,
-and the built_in function-call counts, 4202 in all, are:
-= -- 387
-> -- 186
+            826 strings with 10434 characters,
+and the built_in function-call counts, 7596 in all, are:
+= -- 724
+> -- 332
 < -- 0
-+ -- 72
-- -- 57
-* -- 292
-:= -- 635
-add.period$ -- 21
-call.type$ -- 15
-change.case$ -- 15
++ -- 126
+- -- 103
+* -- 671
+:= -- 1100
+add.period$ -- 43
+call.type$ -- 23
+change.case$ -- 24
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 119
-empty$ -- 444
-format.name$ -- 71
-if$ -- 1071
+cite$ -- 23
+duplicate$ -- 186
+empty$ -- 760
+format.name$ -- 124
+if$ -- 1872
 int.to.chr$ -- 0
-int.to.str$ -- 15
-missing$ -- 12
-newline$ -- 60
-num.names$ -- 15
-pop$ -- 88
+int.to.str$ -- 23
+missing$ -- 20
+newline$ -- 100
+num.names$ -- 23
+pop$ -- 112
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 281
+skip$ -- 444
 stack$ -- 0
-substring$ -- 119
-swap$ -- 28
+substring$ -- 385
+swap$ -- 66
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 25
-width$ -- 17
-write$ -- 141
+while$ -- 53
+width$ -- 25
+write$ -- 233

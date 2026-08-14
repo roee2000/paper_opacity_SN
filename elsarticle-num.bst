@@ -58,7 +58,7 @@ INTEGERS { hrefform inlinelinks makeinlinelink addeprints adddoiresolver }
 FUNCTION {init.urlbst.variables}
 {
   "Available from: " 'urlintro := % prefix before URL
-  "http://arxiv.org/abs/" 'eprinturl := % prefix to make URL from eprint ref
+  "https://arxiv.org/abs/" 'eprinturl := % prefix to make URL from eprint ref
   "arXiv:" 'eprintprefix := % text prefix printed before eprint ref
   "https://doi.org/" 'doiurl := % prefix to make URL from DOI
   "doi:" 'doiprefix :=      % text prefix printed before DOI ref

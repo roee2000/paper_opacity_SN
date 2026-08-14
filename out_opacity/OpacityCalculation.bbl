@@ -7,38 +7,47 @@
 
 \bibitem{fontes2015opacity}
 C.~J. Fontes, C.~L. Fryer, A.~L. Hungerford, P.~Hakel, J.~Colgan, D.~P.
-  Kilcrease, M.~E. Sherrill,
-  \href{https://doi.org/10.1016/j.hedp.2015.06.002}{Relativistic opacities for
-  astrophysical applications}, High Energy Density Physics 16~(C) (2015)
-  53--59.
+  Kilcrease, M.~E. Sherrill, Relativistic opacities for astrophysical
+  applications, High Energy Density Physics 16 (2015) 53--59.
+\newblock \href {https://doi.org/10.1016/j.hedp.2015.06.002}
+  {\path{doi:10.1016/j.hedp.2015.06.002}}.
 
 \bibitem{fontes2017linesmeared}
 C.~J. Fontes, C.~L. Fryer, A.~L. Hungerford, R.~T. Wollaeger, S.~Rosswog,
-  E.~Berger, \href{https://arxiv.org/abs/1702.02990}{A line-smeared treatment
-  of opacities for the spectra and light curves from macronovae}, arXiv
-  preprint arXiv:1702.02990 (2017).
+  E.~Berger, A line-smeared treatment of opacities for the spectra and light
+  curves from macronovae, arXiv e-prints (2017).
+\newblock \href {https://arxiv.org/abs/1702.02990} {\path{arXiv:1702.02990}}.
 
 \bibitem{fontes2020opacity}
-C.~J. Fontes, C.~L. Fryer, A.~L. Hungerford, R.~T. Wollaeger, O.~Korobkin,
-  \href{https://academic.oup.com/mnras/article/493/3/4143/5758310}{A
+C.~J. Fontes, C.~L. Fryer, A.~L. Hungerford, R.~T. Wollaeger, O.~Korobkin, A
   line-binned treatment of opacities for the spectra and light curves from
-  neutron star mergers}, Monthly Notices of the Royal Astronomical Society
+  neutron star mergers, Monthly Notices of the Royal Astronomical Society
   493~(3) (2020) 4143--4171.
+\newblock \href {https://doi.org/10.1093/mnras/staa485}
+  {\path{doi:10.1093/mnras/staa485}}.
 
 \bibitem{deprince2024kilonova}
 J.~Deprince, G.~Wagle, S.~Ben~Nasr, H.~Carvajal~Gallego, O.~Just, P.~Palmeri,
   P.~Quinet, M.~Godefroid, S.~Van~Eck, Kilonova ejecta opacity inferred from
-  new large-scale hfr atomic calculations in all elements between ca (z = 20)
-  and lr (z = 103), Astronomy \& Astrophysics (2024).
+  new large-scale {HFR} atomic calculations in all elements between {Ca} ({Z} =
+  20) and {Lr} ({Z} = 103), Astronomy \& Astrophysics 696 (2025) A32.
+\newblock \href {https://doi.org/10.1051/0004-6361/202452967}
+  {\path{doi:10.1051/0004-6361/202452967}}.
 
 \bibitem{just2022properties}
-O.~Just, et~al., Properties of kilonovae from dynamical and post-merger ejecta
-  of neutron star mergers, The Astrophysical Journal (2022).
+O.~Just, I.~Kullmann, S.~Goriely, A.~Bauswein, H.-T. Janka, C.~E. Collins,
+  Dynamical ejecta of neutron star mergers with nucleonic weak processes {II}:
+  kilonova emission, Monthly Notices of the Royal Astronomical Society 510~(2)
+  (2022) 2820--2840.
+\newblock \href {https://doi.org/10.1093/mnras/stab3327}
+  {\path{doi:10.1093/mnras/stab3327}}.
 
 \bibitem{tanaka2020systematic}
-M.~Tanaka, D.~Kato, G.~Gaigalas, K.~Kawaguchi,
-  \href{https://doi.org/10.3847/1538-4357/ab76ba}{Systematic Opacity
-  Calculations for Kilonovae}, The Astrophysical Journal 891~(2) (2020) 143.
+M.~Tanaka, D.~Kato, G.~Gaigalas, K.~Kawaguchi, Systematic opacity calculations
+  for kilonovae, Monthly Notices of the Royal Astronomical Society 496~(2)
+  (2020) 1369--1392.
+\newblock \href {https://doi.org/10.1093/mnras/staa1576}
+  {\path{doi:10.1093/mnras/staa1576}}.
 
 \bibitem{eastmanpinto1993}
 R.~G. Eastman, P.~A. Pinto, Spectrum formation in supernovae: Numerical
@@ -46,16 +55,33 @@ R.~G. Eastman, P.~A. Pinto, Spectrum formation in supernovae: Numerical
 \newblock \href {https://doi.org/10.1086/172957} {\path{doi:10.1086/172957}}.
 
 \bibitem{kurucz1995}
-R.~L. Kurucz, B.~Bell, Atomic line list (1995).
+R.~L. Kurucz, B.~Bell,
+  \href{https://lweb.cfa.harvard.edu/amp/ampdata/kurucz23/sekur.html}{Atomic
+  line data ({Kurucz} {CD}-{ROM} {No}.~23)} (1995).
+\newline\urlprefix\url{https://lweb.cfa.harvard.edu/amp/ampdata/kurucz23/sekur.html}
 
 \bibitem{nistASD}
-{Kramida, A.}, {Ralchenko, Yu.}, {Reader, J.}, {NIST ASD Team},
-  \href{https://physics.nist.gov/asd}{NIST Atomic Spectra Database}, {National}
-  Institute of Standards and Technology, Gaithersburg, MD; version 5.11 (2024).
+{Kramida, A.}, {Ralchenko, Yu.}, {Reader, J.}, {{NIST ASD Team}},
+  \href{https://physics.nist.gov/asd}{{NIST} atomic spectra database (version
+  5.11)}, national Institute of Standards and Technology, Gaithersburg, MD
+  (2024).
+\newline\urlprefix\url{https://physics.nist.gov/asd}
+
+\bibitem{simmerer2004sprocess}
+J.~Simmerer, C.~Sneden, J.~J. Cowan, J.~Collier, V.~M. Woolf, J.~E. Lawler, The
+  rise of the $s$-process in the galaxy, The Astrophysical Journal 617~(2)
+  (2004) 1091--1114.
+\newblock \href {https://doi.org/10.1086/424504} {\path{doi:10.1086/424504}}.
+
+\bibitem{sneden2008neutron}
+C.~Sneden, J.~J. Cowan, R.~Gallino, Neutron-capture elements in the early
+  galaxy, Annual Review of Astronomy and Astrophysics 46~(1) (2008) 241--288.
+\newblock \href {https://doi.org/10.1146/annurev.astro.46.060407.145207}
+  {\path{doi:10.1146/annurev.astro.46.060407.145207}}.
 
 \bibitem{urilightCode}
 Y.~Elbaz, \href{https://ascl.net/2209.012}{{URILIGHT}: {Time-dependent
-  Monte-Carlo} radiative-transfer}, Astrophysics Source Code Library,
+  Monte-Carlo} radiative-transfer}, Astrophysics Source Code Library, record
   ascl:2209.012 (2022).
 \newline\urlprefix\url{https://ascl.net/2209.012}
 
@@ -63,7 +89,7 @@ Y.~Elbaz, \href{https://ascl.net/2209.012}{{URILIGHT}: {Time-dependent
 N.~Wygoda, Y.~Elbaz, B.~Katz, Type {Ia} supernovae have two physical
   width-luminosity relations and they favour sub-{Chandrasekhar} and direct
   collision models - {I}. {Bolometric}, Monthly Notices of the Royal
-  Astronomical Society 484 (2019).
+  Astronomical Society 484 (2019) 3941--3950.
 \newblock \href {https://doi.org/10.1093/mnras/stz145}
   {\path{doi:10.1093/mnras/stz145}}.
 
@@ -71,7 +97,7 @@ N.~Wygoda, Y.~Elbaz, B.~Katz, Type {Ia} supernovae have two physical
 N.~Wygoda, Y.~Elbaz, B.~Katz, Type {Ia} supernovae have two physical
   width-luminosity relations and they favour sub-{Chandrasekhar} and direct
   collision models - {II}. {Colour} evolution, Monthly Notices of the Royal
-  Astronomical Society 484 (2019).
+  Astronomical Society 484 (2019) 3951--3967.
 \newblock \href {https://doi.org/10.1093/mnras/stz146}
   {\path{doi:10.1093/mnras/stz146}}.
 
@@ -79,19 +105,64 @@ N.~Wygoda, Y.~Elbaz, B.~Katz, Type {Ia} supernovae have two physical
 O.~Korobkin, S.~Rosswog, A.~Arcones, C.~Winteler, On the astrophysical
   robustness of the neutron star merger r-process, Monthly Notices of the Royal
   Astronomical Society 426~(3) (2012) 1940--1949.
-\newblock \href {https://doi.org/10.1111/j.1365-2966.2012.21872.x}
-  {\path{doi:10.1111/j.1365-2966.2012.21872.x}}.
+\newblock \href {https://doi.org/10.1111/j.1365-2966.2012.21859.x}
+  {\path{doi:10.1111/j.1365-2966.2012.21859.x}}.
 
 \bibitem{nomoto1984w7}
 K.~Nomoto, F.-K. Thielemann, K.~Yokoi, Accreting white dwarf models of type {I}
   supernovae. {III}. carbon deflagration supernova, The Astrophysical Journal
   286 (1984) 644.
-\newblock \href {https://doi.org/10.1086/162645} {\path{doi:10.1086/162645}}.
+\newblock \href {https://doi.org/10.1086/162639} {\path{doi:10.1086/162639}}.
 
 \bibitem{hotokezaka2020macronova}
 K.~Hotokezaka, E.~Nakar, Radioactive heating rate of {r}-process elements and
   macronova light curve, The Astrophysical Journal 891~(2) (2020) 152.
-\newblock \href {https://doi.org/10.3847/1538-4357/ab764d}
-  {\path{doi:10.3847/1538-4357/ab764d}}.
+\newblock \href {https://doi.org/10.3847/1538-4357/ab6a98}
+  {\path{doi:10.3847/1538-4357/ab6a98}}.
+
+\bibitem{villar2017combined}
+V.~A. Villar, J.~Guillochon, E.~Berger, B.~D. Metzger, P.~S. Cowperthwaite,
+  M.~Nicholl, K.~D. Alexander, P.~K. Blanchard, R.~Chornock, T.~Eftekhari,
+  W.~Fong, R.~Margutti, P.~K.~G. Williams, The combined ultraviolet, optical,
+  and near-infrared light curves of the kilonova associated with the binary
+  neutron star merger {GW170817}, The Astrophysical Journal Letters 851~(1)
+  (2017) L21.
+\newblock \href {https://doi.org/10.3847/2041-8213/aa9c84}
+  {\path{doi:10.3847/2041-8213/aa9c84}}.
+
+\bibitem{metzger2019kilonovae}
+B.~D. Metzger, Kilonovae, Living Reviews in Relativity 23~(1) (2019) 1.
+\newblock \href {https://doi.org/10.1007/s41114-019-0024-0}
+  {\path{doi:10.1007/s41114-019-0024-0}}.
+
+\bibitem{collins2023critical}
+C.~E. Collins, A.~Bauswein, S.~A. Sim, V.~Vijayan, G.~Mart{\'i}nez-Pinedo,
+  O.~Just, L.~J. Shingles, M.~Kromer, The critical role of nuclear heating
+  rates, thermalization efficiencies, and opacities for kilonova modelling and
+  parameter inference, Monthly Notices of the Royal Astronomical Society
+  521~(2) (2023) 1858--1872.
+\newblock \href {https://doi.org/10.1093/mnras/stad606}
+  {\path{doi:10.1093/mnras/stad606}}.
+
+\bibitem{banerjee2024diversity}
+S.~Banerjee, M.~Tanaka, D.~Kato, G.~Gaigalas, Diversity of early kilonova with
+  the realistic opacities of highly ionized heavy elements, The Astrophysical
+  Journal 968~(2) (2024) 64.
+\newblock \href {https://doi.org/10.3847/1538-4357/ad4029}
+  {\path{doi:10.3847/1538-4357/ad4029}}.
+
+\bibitem{waxman2018constraints}
+E.~Waxman, E.~O. Ofek, D.~Kushnir, A.~Gal-Yam, Constraints on the ejecta of the
+  {GW170817} neutron star merger from its electromagnetic emission, Monthly
+  Notices of the Royal Astronomical Society 481~(3) (2018) 3423--3441.
+\newblock \href {https://doi.org/10.1093/mnras/sty2441}
+  {\path{doi:10.1093/mnras/sty2441}}.
+
+\bibitem{kasen2013opacities}
+D.~Kasen, N.~R. Badnell, J.~Barnes, Opacities and spectra of the $r$-process
+  ejecta from neutron star mergers, The Astrophysical Journal 774~(1) (2013)
+  25.
+\newblock \href {https://doi.org/10.1088/0004-637X/774/1/25}
+  {\path{doi:10.1088/0004-637X/774/1/25}}.
 
 \end{thebibliography}

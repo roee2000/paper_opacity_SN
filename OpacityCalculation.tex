@@ -9,6 +9,12 @@
 \usepackage{url}
 \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue]{hyperref}
 
+% Top-align floats on float-only pages (avoids a nearly blank page with the figure at the bottom).
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+
 \DeclareRobustCommand{\secref}[1]{\hyperref[#1]{Section~\ref*{#1}}}
 \DeclareRobustCommand{\figref}[1]{\hyperref[#1]{Figure~\ref*{#1}}}
 \DeclareRobustCommand{\figsref}[2]{\hyperref[#1]{Figures~\ref*{#1}} and~\hyperref[#2]{\ref*{#2}}}
@@ -34,19 +40,25 @@
            postcode={6997801}, 
            country={Israel}}
 
-\title{Defining Effective Rosseland Mean for Expansion Opacity} %% Article title
+\title{Defining an Effective Rosseland Mean for Expansion Opacity} %% Article title
 
 %% Abstract
 \begin{abstract}
 The standard Rosseland mean does not account for the Doppler shift of photons through spectral lines during expansion
 and can substantially misestimate the opacity of line-rich ejecta.
-We define an effective Rosseland mean opacity, $\kappa_R^{\rm exp}$, for radiative transfer in expanding media where
-bound-bound transitions dominate the opacity.
-For each frequency, the method calculates the distance an outward travelling photon covers before reaching optical
-depth unity, and assigns an effective expansion opacity $\kappa_{\rm exp} = 1/(\rho \Delta x)$.
-Single-group Monte Carlo radiative transfer simulations using this opacity reproduce the trends of full frequency-group
-calculations for Type~Ia supernova and kilonova ejecta, with peak luminosities differing by about 25\%, while reducing
-the computational time by more than an order of magnitude.
+For each frequency, we define an effective expansion opacity from the distance an outward
+travelling photon covers before reaching optical depth unity,
+$\kappa_{\rm exp}=1/(\rho\Delta x)$. Its Rosseland mean, $\kappa_R^{\rm exp}$, provides a gray
+transport opacity for expanding media where bound-bound transitions dominate.
+For kilonova ejecta, this method allows us to determine the effective opacity as a function of
+lanthanide mass fraction $X_{\rm lan}$. Using an eight-element composition derived from the solar
+$r$-process pattern, we obtain the approximate effective Rosseland opacity
+$\kappa_{\rm avg}\simeq0.34+99X_{\rm lan}^{0.72}$~cm$^2$/g during the diffusion-dominated phase,
+for the adopted composition and atomic data.
+Single-group Monte Carlo simulations using this opacity reproduce the trends of full frequency-group
+calculations for Type~Ia supernova and kilonova ejecta, with kilonova peak luminosities differing
+by $7$--$33\%$. For lanthanide-rich kilonova ejecta, the single-group calculation is about
+60 times faster for the same number of packets.
 \end{abstract}
 
 %% Keywords
@@ -85,7 +97,8 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     velocity gradient, radiation transport in systems with expansion opacity is usually calculated using Monte Carlo simulations,
     which track individual photons and their frequency evolution as they propagate through the expanding medium.
 
-    Calculating the Rosseland mean opacity has several motivations: a single opacity value (1) is required for analytic 
+    Calculating an effective Rosseland mean opacity has several motivations: a single opacity value 
+    (1) is required for analytic 
     models and closed-form solutions, which cannot treat full frequency-dependent opacity; (2) gives direct physical 
     intuition for how temperature and composition affect the opacity and hence the light curve; and (3) enables 
     faster and simpler simulations than full frequency-dependent calculations. 
@@ -129,7 +142,9 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     In \secref{SecRosseland}, we show the variation of $\kappa_R^{\rm exp}$ with composition, temperature, density, and time
     and show how it scales differently from the Planck mean.
     In \secref{SecRadiationSimulations} we demonstrate the use of $\kappa_R^{\rm exp}$ in radiative transfer simulations and compare the
-    results to the full frequency-group calculations. 
+    results to the full frequency-group calculations.
+    In \secref{SecTypicalOpacity} we determine the effective opacity sampled by the diffusion
+    region and derive its dependence on the kilonova lanthanide fraction.
     In \secref{SecSummary} we summarize the results.
 %which means that the time is the velocity and frequency gradient $t = \frac{dv}{dR} = \frac{d\nu}{dR}$.
 
@@ -145,7 +160,7 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     bound-free opacity (which we neglect in this work), and $\kappa_{\mathrm{bb}}$ is bound-bound opacity from atomic line 
     transitions.
 
-    The bb opacity $\kappa_{\mathrm{bb}}$ depends on the ionization and excitation populations
+    The bound-bound opacity $\kappa_{\mathrm{bb}}$ depends on the ionization and excitation populations
     of the material. We obtain the ionization fractions from the Saha equation and the level
     populations from the Boltzmann distribution, and use them to calculate the optical depth of each line.
 
@@ -158,7 +173,7 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     from the energy level $j_l$ to the energy level $j_u$, $\nu_{j_l,j_u}$ is the frequency of the transition, $N_{m,i,j_l}$ and $N_{m,i,j_u}$ 
     are the number densities of the lower and upper levels respectively, $g_{j_l}$ and $g_{j_u}$ are their degeneracies, and $t$ is the time from explosion.
 
-    There are two values for the bound-bound opacity, saturated and unsaturated which are calculated as:
+    We use two forms of the bound-bound opacity, saturated and unsaturated:
     \begin{equation}
         \kappa_{bb,saturated}(\nu) = \sum_l \frac{\nu_l}{\rho c t} \delta(\nu - \nu_{l}) \cdot (1 - \exp(-\tau_{j_l,j_u}))
     \end{equation}
@@ -176,7 +191,7 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     moves through the plasma before accumulating optical depth unity.
     The effective expansion Rosseland mean, $\kappa_R^{\rm exp}$, is then the Rosseland mean of
     $\kappa_{\rm exp}$.
-    An outward travelling photon with frequency $\nu_0$, will reach a new spectral line with frequency 
+    An outward travelling photon with frequency $\nu_0$ will reach a new spectral line with frequency 
     $\nu_{l}$ after a velocity shift of $\Delta v = -c \ln(\nu_0/\nu_{l})$ which corresponds to a
     distance of $\Delta x = -c t \ln(\nu_0/\nu_{l})$.
 
@@ -184,7 +199,7 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     \begin{equation}
         \tau(\nu) = \int \kappa(\nu) \rho \, dx = ct \int \kappa(\nu) \rho \frac{d\nu}{\nu}
     \end{equation}
-    And for each frequency $\nu_i$, given the frequency $\nu_j$ so that $\tau(\nu_j) - \tau(\nu_i) = 1$,
+    For each frequency $\nu_i$, given the frequency $\nu_j$ such that $\tau(\nu_j) - \tau(\nu_i) = 1$,
     we define the effective expansion opacity as:
     \begin{equation}
         \label{eq:kappa_eff_simple}
@@ -234,8 +249,8 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     0.5~eV.
     %Top: frequency-dependent opacity showing unsaturated opacity, saturated opacity, and effective
     %expansion opacity. Bottom: zoom into a narrow photon-energy range with the same quantities.
-    For species with $A<28$ in Type~Ia supernova compositions we use the atomic line data of Kurucz \& Bell
-    (1995; CD~23) \cite{kurucz1995}. For kilonova composition, where the relevant nuclei have $A>28$, 
+    For elements with $Z\leq28$ in Type~Ia supernova compositions we use the atomic line data of Kurucz \& Bell
+    (1995; CD~23) \cite{kurucz1995}. For kilonova compositions, where the relevant elements have $Z>28$,
     we use the NIST Atomic Spectra Database \cite{nistASD}.
 
     % NOTE (editors / future AI): For vertically stacked panels use top/middle/bottom (not left/right). For a true side-by-side layout, left/right is fine. Do not set panel labels in \textbf{...}; keep them in normal weight.
@@ -312,33 +327,65 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     a photon travels in a frequency bin. The fact that we observe good agreement between low-resolution and
     high-resolution calculations for $\kappa_R^{\rm exp}$ for both iron and erbium confirms 
     that the line locations are indeed close enough to randomly distributed within large bins. 
-    This also offers a rationale for the accuracy of the results done with the artificial line-broadening
-    prescription of Fontes et al.\ \cite{fontes2015opacity,fontes2017linesmeared}: 
+    This also offers a rationale for the success of the artificial line-broadening prescription
+    of Fontes et al.\ \cite{fontes2015opacity,fontes2017linesmeared}:
     spreading line opacity over frequency is analogous to many narrow lines at random positions within
     a coarse bin, so either picture can yield similar cumulative opacity in the bin, 
     consistent with smeared Sobolev tables reproducing Monte Carlo transport \cite{fontes2020opacity}.
     At low frequency resolution $\kappa_R$ of the saturated expansion opacity and
     $\kappa_R^{\rm exp}$ are close because a single wide bin often sets the stopping distance. In that limit,
     \eqnref{eq:kappa_eff} applies and the effective opacity is the same as the saturated opacity.
-    Using the formalism formerly described, we calculated the opacity of materials for different times, 
-    densities and temperatures and constructed opacity tables that can be used for simulations of type~Ia
-    supernova and kilonova.
+    Using the formalism described above, we calculated the opacity for different times,
+    densities, and temperatures and constructed tables for Type~Ia supernova and kilonova
+    simulations.
     To simulate Type~Ia supernova ejecta, we created two tables for two compositions.
     The first for the outer layer of the supernova, which is a mixture of Silicon, Sulfur, Argon, and Calcium 
     in the ratio of 0.535, 0.32, 0.062, and 0.083 respectively.
     %Si: 0.535, S: 0.32, Ar: 0.062, Ca: 0.083
-    The second for the core of the supernova, which is a decay of $^{56}$Ni followed its decay chain,
+    The second represents the supernova core and follows the $^{56}$Ni decay chain,
     $^{56}{\rm Ni}\rightarrow{}^{56}{\rm Co}\rightarrow{}^{56}{\rm Fe}$, using the composition appropriate
     for each time window. We assumed the half-lives of 
     $t_{1/2}(^{56}{\rm Ni}) = 6.075$ days and $t_{1/2}(^{56}{\rm Co}) = 77.233$ days.
-    For the kilonova simulation we created a single table for a reduced mixture,
-    $X_{34}=0.5$, $X_{44}=0.15$, $X_{52}=0.25$, and $X_{68}=0.1$.
-    Kilonova ejecta contain many elements, so this mixture was chosen to represent the main
-    $p$-, $d$-, and $f$-block contributions without calculating every species.
-    The block fractions were estimated from the $Y_e=0.2$ abundance distribution in
-    Fig.~11 of Tanaka et al.\ \cite{tanaka2020systematic}; Se ($Z=34$) and Te ($Z=52$)
-    represent the $p$-block, Ru ($Z=44$) the $d$-block, and Er ($Z=68$) the $f$-block.
-    Within each block we selected elements with relatively large abundance.
+    Kilonova ejecta contain essentially every $r$-process species, and computing a line list for
+    each of them is impractical. We therefore built the kilonova table for a reduced mixture of
+    eight representative elements derived directly from the solar $r$-process abundance pattern.
+    We start from the solar $r$-process residuals $N_r(A)$, i.e.\ the solar isotopic abundances
+    with the calculated $s$-process contribution subtracted, taken from Cowan et al.\
+    \cite{cowan2006nucleosynthesis}.
+    Converting to mass, $M(A)\propto A\,N_r(A)$, we restrict the sum to $90<A\leq215$,
+    which holds $20\%$ of the mass of the tabulated pattern ($69\leq A\leq238$) and covers the
+    second ($A\approx130$) and third ($A\approx195$) $r$-process peaks together with the
+    lanthanides between them.
+    This range is then divided into eight contiguous windows in $A$, each represented by the one
+    element whose standard atomic weight falls inside it, and each representative is given the
+    mass fraction accumulated in its own window. \figref{fig:kilonova_composition} shows the
+    cumulative mass as a function of $A$ with the window boundaries and the resulting fractions.
+    The eight representatives are Zr ($Z=40$), Ru ($44$), Xe ($54$), Nd ($60$), Eu ($63$),
+    Er ($68$), Re ($75$), and Pb ($82$), with mass fractions
+    $0.049$, $0.108$, $0.460$, $0.043$, $0.030$, $0.047$, $0.206$, and $0.057$.
+    Splitting by valence shell, the mixture is $51.7\%$ $p$-block, $36.2\%$ $d$-block, and
+    $12.1\%$ $f$-block, so the lanthanide mass fraction of the solar-derived mixture is
+    $X_{\rm lan}=0.121$.
+    Because $X_{\rm lan}$ is the quantity that varies most strongly between kilonova ejecta
+    components, we also built six rescaled tables in which the three lanthanides are scaled to a
+    prescribed $X_{\rm lan}$ between $10^{-6}$ and $10^{-1}$, keeping their relative proportions,
+    and the five remaining elements are renormalized to $1-X_{\rm lan}$ keeping theirs.
+    These tables are used in \secref{SecRadiationSimulations}.
+
+\begin{figure}[h]
+    % How to create (run from python_opac_calc2):
+    % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
+    % python plot_solar_metal_mass.py
+    % cp solar_metal_mass_fraction_reps.png build_paper/figs/kilonova_composition.png
+    \centering
+    \includegraphics[width=\columnwidth]{figs/kilonova_composition.png}
+    \caption{Cumulative mass of the solar $r$-process residual pattern
+    \cite{cowan2006nucleosynthesis} as a function of mass number, normalized to the
+    total mass in $90<A\leq215$. Colors mark the eight contiguous $A$ windows and the legend gives
+    the element chosen to represent each window, its valence block, and the mass fraction contained
+    in the window. Black circles are placed at the standard atomic weight of each representative.}
+    \label{fig:kilonova_composition}
+\end{figure}
 
     Each table stores, at every $(T,\rho,t)$, $\kappa_R^{\rm exp}$, $f_{\rm abs}$,
     $\kappa_P^{\rm abs}$, and $\kappa_P^{\rm tot}$.
@@ -354,9 +401,14 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     In transport we use $\kappa_R^{\rm abs}=f_{\rm abs}\,\kappa_R^{\rm exp}$ and
     $\kappa_R^{\rm scat}=(1-f_{\rm abs})\,\kappa_R^{\rm exp}$: absorption deposits energy and
     re-emits the packet (IMC), while scatter only redirects it.
-    The Planck mean $\kappa_P^{\rm abs}$ is taken from saturated absorption,
-    $\kappa_{\rm sat}-\kappa_{\rm T}$, and sets the cell temperature from the deposited energy;
-    $\kappa_P^{\rm tot}$ is stored only for comparison with $\kappa_R^{\rm exp}$.
+    The last two entries are Planck means of the saturated opacity and are not used for the same
+    purpose. $\kappa_P^{\rm abs}$ is the Planck mean of the saturated absorption opacity,
+    $\kappa_{\rm sat}-\kappa_{\rm T}$; it sets the cell temperature, which is chosen so that the
+    thermal emission $4\pi\kappa_P^{\rm abs}\rho B(T)$ balances the energy deposited in the cell.
+    $\kappa_P^{\rm tot}$ is the Planck mean of the total saturated opacity, including Thomson
+    scattering. It takes no part in the transport and is stored only so that the Planck and
+    Rosseland weightings can be compared with the same physical processes included in both,
+    as we do next.
 
     Since the ordinary Rosseland mean opacity is problematic to define for expansion opacity, previous works
     \cite{deprince2024kilonova,just2022properties,tanaka2020systematic} often
@@ -371,32 +423,43 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     \figref{fig:rosseland_planck_sn1a_outer}, and \figref{fig:rosseland_planck_kilonova}
     show $\kappa_R^{\rm exp}$ and the ratio $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ for
     the $^{56}{\rm Ni}$ decay chain, Type~Ia outer-layer composition, and kilonova composition.
-    For the Ni-rich core and kilonova compositions the ratio varies approximately between 1 and 30
-    and depends on density and temperature, so $\kappa_P^{\rm tot}$ is not strongly correlated
-    with $\kappa_R^{\rm exp}$.
-    For the Type~Ia outer-layer composition (Si, S, Ar, Ca) the ratio stays between about 1 and 2
-    over the plotted density range ($10^{-14}$--$10^{-10}$~g/cm$^3$).
-    In this regime the opacity is dominated by Thomson scattering and free-free absorption,
-    which depend only weakly on frequency, so the two averaging schemes give similar results.
-    \figsref{fig:kappa_slice_T}{fig:kappa_slice_rho} show one-dimensional slices of $\kappa_R^{\rm exp}$
-    for the Type~Ia outer-layer and kilonova compositions.
-    The kilonova opacity is larger than the Type~Ia opacity over most of the plotted range,
-    especially at low density and high temperature, because of the stronger bound-bound contribution
-    from the heavier elements.
-    For both compositions the opacity generally decreases with density, while the temperature dependence
-    is weaker for the Type~Ia composition and stronger for the kilonova composition.
+    
+    For both the Ni-rich and kilonova compositions, where bound-bound lines dominate,
+    the opacity tends to decrease with density.
+    This trend follows from the structure of
+    \eqref{eq:kappa_eff}: each line contributes a blocking factor $1-\exp(-\tau_l)$ divided by
+    $\rho c t$, and the Sobolev depth $\tau_l$ is itself proportional to $\rho t$. A weak line with
+    $\tau_l\ll1$ therefore contributes in proportion to the number of absorbers, the two density
+    factors cancel, and its opacity per unit mass is independent of $\rho$. A strong line with
+    $\tau_l\gg1$ instead saturates at $1-\exp(-\tau_l)\to1$: it already blocks its entire frequency
+    interval, and adding more absorbers cannot block any more. For strong lines, 
+    the total blocked fraction stops growing with density but their opacity contribution falls as $1/\rho$. 
+
+    The ratio between the Planck and Rosseland means varies strongly with temperature and density
+    for the Ni-rich core and kilonova composition. At one day, it reaches approximately
+    $39$ and $132$, respectively. Therefore, the Planck mean is not a good proxy for the
+    expansion Rosseland mean.
+
+    We note that the kilonova figures are cut at $T=2$~eV because our atomic data contain only the first three
+    ionization stages, so the mean ionization is capped at $\langle Z\rangle=3$. Above that 
+    temperature the material is held artificially at the third stage rather than being stripped
+    further, and the opacity is incorrect. This does not affect the transport calculations of
+    \secref{SecRadiationSimulations}, because the emergent radiation is set by the diffusion
+    surface and not by the optically thick interior: the plasma temperature at that diffusion surface never
+    exceeds $1.8$~eV in any of the runs (\figref{fig:kilonova_diffusion_surface}),
+    so the opacity that shapes the light curves is always
+    taken from within the reliable range, even though the deeply buried cells are assigned
+    higher temperatures.
 
 \begin{figure*}[t]
         % How to create (run from python_opac_calc2):
         % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
-        % python plot_opac_cont.py -d opac_libs/NiCoFe -t 10 -c 5e-3 0.2 --planck-rosseland --png -yl 1e-14 1e-10
-        % mv t_10days_ratio.png build_paper/figs/ni_ratio_t10d.png
-        % mv t_10days_rosseland.png build_paper/figs/ni_rosseland_t10d.png
+        % python plot_opac_cont.py -d opac_libs/tables/NiCoFe_t1_t10 -t 1 -c 5e-3 0.2 --ratio-limits 1 40 --planck-rosseland --png -yl 1e-14 1e-10
         \centering
         \makebox[\textwidth][c]{%
-        \includegraphics[width=0.48\textwidth]{figs/ni_rosseland_t10d.png}\hspace{0.02\textwidth}%
-        \includegraphics[width=0.48\textwidth]{figs/ni_ratio_t10d.png}}
-        \caption{Type~Ia core composition at $t=10$~days: $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right).
+        \includegraphics[width=0.48\textwidth]{figs/ni_rosseland_t1d.png}\hspace{0.02\textwidth}%
+        \includegraphics[width=0.48\textwidth]{figs/ni_t1d_ratio.png}}
+        \caption{Type~Ia core composition at $t=1$~day: $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right).
         Density $10^{-14}$--$10^{-10}$~g/cm$^3$.}
         \label{fig:rosseland_planck_ni}
 \end{figure*}
@@ -404,66 +467,38 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
 \begin{figure*}[t]
         % How to create (run from python_opac_calc2):
         % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
-        % python plot_opac_cont.py -d opac_libs/SN1A_table -t 10 -c 5e-3 0.2 --planck-rosseland --png -yl 1e-14 1e-10
-        % mv t_10days_ratio.png build_paper/figs/sn1a_outer_ratio_t10d.png
-        % mv t_10days_rosseland.png build_paper/figs/sn1a_outer_rosseland_t10d.png
+        % python plot_opac_cont.py -d opac_libs/tables/SN1A_t1_t10_table -t 1 -c 5e-3 0.2 --ratio-limits 0.9 6 --planck-rosseland --png -yl 1e-14 1e-10
         \centering
         \makebox[\textwidth][c]{%
-        \includegraphics[width=0.48\textwidth]{figs/sn1a_outer_rosseland_t10d.png}\hspace{0.02\textwidth}%
-        \includegraphics[width=0.48\textwidth]{figs/sn1a_outer_ratio_t10d.png}} 
-        \caption{Type~Ia outer-layer composition at $t=10$~days: $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right).
+        \includegraphics[width=0.48\textwidth]{figs/sn1a_outer_rosseland_t1d.png}\hspace{0.02\textwidth}%
+        \includegraphics[width=0.48\textwidth]{figs/sn1a_outer_ratio_t1d.png}} 
+        \caption{Type~Ia outer-layer composition at $t=1$~day: $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right).
         The composition is Si, S, Ar, and Ca with mass fractions 0.535, 0.32, 0.062, and 0.083.
-        Density $10^{-14}$--$10^{-10}$~g/cm$^3$. The ratio stays near unity because the opacity is dominated by Thomson scattering and free-free absorption.}
+        Density $10^{-14}$--$10^{-10}$~g/cm$^3$.}
         \label{fig:rosseland_planck_sn1a_outer}
 \end{figure*}
 
 \begin{figure*}[t]
     % How to create (run from python_opac_calc2):
     % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
-    % python plot_opac_cont.py -d opac_libs/kilonova_table_SeTe -t 1 -yl 1e-14 1e-9 -c 1e-3 10 --planck-rosseland --png
+    % python plot_opac_cont.py -d opac_libs/tables/reps8_t1_table -t 1 -yl 1e-16 1e-11 -xl 0.15 2 -c 1e-1 1e2 --ratio-limits 1.5 50 --planck-rosseland --png
     % cp t_1days_rosseland.png t_1days_ratio.png $BUILD_PAPER/figs/ as kilonova_rosseland_t1d.png, kilonova_ratio_t1d.png
     \centering
     \makebox[\textwidth][c]{%
     \includegraphics[width=0.48\textwidth]{figs/kilonova_rosseland_t1d.png}\hspace{0.02\textwidth}%
     \includegraphics[width=0.48\textwidth]{figs/kilonova_ratio_t1d.png}}
-    \caption{Kilonova composition at $t=1$~day: $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right). 
-    Density $10^{-14}$--$10^{-9}$~g/cm$^3$.}
+    \caption{Solar-derived kilonova composition ($X_{\rm lan}=0.121$) at $t=1$~day:
+    $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right).
+    Density $10^{-16}$--$10^{-11}$~g/cm$^3$, the range spanned by the diffusion surface in the
+    transport calculations of \secref{SecRadiationSimulations}. The temperature range is cut at
+    $2$~eV, above which the mean ionization saturates at the three-electron limit of our atomic
+    data (see text). Both colorbars are clipped at both ends; within the plotted range
+    $\kappa_R^{\rm exp}$ spans $0.006$--$103$~cm$^2$/g and the ratio spans $1.6$--$132$.}
     \label{fig:rosseland_planck_kilonova}
 \end{figure*}
 
-\begin{figure}[t]
-    % How to create (run from python_opac_calc2):
-    % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
-    % python plot_kilonova_kappa_slices.py --png -o ~/Documents/PHD/URILIGHT/python_opac_calc/clean_ver/build_paper/figs
-    \centering
-    \includegraphics[width=\columnwidth]{figs/type1_kilonova_kappa_vs_T.png}
-    \caption{Effective expansion Rosseland mean, $\kappa_R^{\rm exp}$, as a function of temperature for fixed
-    densities $\rho=10^{-14}$ and $10^{-12}$~g/cm$^3$.
-    The plotted table times are $t=1$~day for Type~Ia and $t=1.35721$~days for the kilonova.
-    Type~Ia outer-layer composition is shown in blue and kilonova composition in orange.
-    Dark and light curves correspond to the lower and higher density, respectively.}
-    \label{fig:kappa_slice_T}
-\end{figure}
 
-\begin{figure}[t]
-    % How to create (run from python_opac_calc2):
-    % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
-    % python plot_kilonova_kappa_slices.py --png -o ~/Documents/PHD/URILIGHT/python_opac_calc/clean_ver/build_paper/figs
-    \centering
-    \includegraphics[width=\columnwidth]{figs/type1_kilonova_kappa_vs_rho.png}
-    \caption{Effective expansion Rosseland mean, $\kappa_R^{\rm exp}$, as a function of density for fixed
-    temperatures $T=0.5$ and $1$~eV.
-    The plotted table times are $t=1$~day for Type~Ia and $t=1.35721$~days for the kilonova.
-    Type~Ia outer-layer composition is shown in blue and kilonova composition in orange.
-    Dark and light curves correspond to the lower and higher temperature, respectively.}
-    \label{fig:kappa_slice_rho}
-\end{figure}
-
-
-%    \clearpage
-
-
-\section{Simulations With Single Group Opacity Tables}
+\section{Monte Carlo Simulation With Single Group Opacity}
 \label{SecRadiationSimulations}
 
     We performed radiation transport simulations to test the effective expansion Rosseland opacity model.
@@ -471,32 +506,33 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     radiative transfer code written by Elbaz et al.\ and designed for supernova ejecta.
     For this work we made several modifications to the code, including support for
     Rosseland and Planck mean opacity tables and related changes needed for the simulations
-    presented here.
+    presented here, alongside technical changes like parallelization and performance optimization.
     With permission from the code writers, we published the modified version in a Git
     repository (\url{https://github.com/roee2000/Urilight_SN}).
     The Type~Ia supernova model is one-dimensional and spherically
-    symmetric and contains 100 cells in homologous expansion. The ejecta has two composition layers: an inner
+    symmetric, and the ejecta has two composition layers: an inner
     $0.98~M_\odot$ layer of $^{56}{\rm Ni}$ and an outer $0.4~M_\odot$ layer of Si, S, Ar, and Ca.
-    The simulation starts at $t=2$~days and ends at $t=80$~days with 100 logarithmic time steps.
+    The simulation starts at $t=2$~days and ends at $t=80$~days.
 
     Energy is deposited by the $^{56}{\rm Ni}\rightarrow{}^{56}{\rm Co}\rightarrow{}^{56}{\rm Fe}$
-    decay chain. Gamma-rays and positrons are transported at the beginning of the calculation, and their
-    deposited energy is saved for each cell and time step. In the radiation transport stage, new optical
-    photon packets are emitted according to the fraction of the total gamma-ray and positron energy
+    decay chain through gamma-ray and positron transport. Radiation transport is performed with
+    photon packets emitted according to the fraction of the total gamma-ray and positron energy
     deposited in each cell. Existing photon packets are propagated with effective scattering: when a
     packet is absorbed it is not removed, but is re-emitted with a frequency sampled according to the local cell
     emission spectrum.
 
-    The kilonova simulation uses a one-dimensional ejecta profile with total mass $0.05~M_\odot$
-    and 32 cells, from $t=0.05$ days to
-    $t=15$ days with 55 time steps. The composition is uniform and contains Se, Ru, Te, and Er with mass
-    fractions 0.5, 0.15, 0.25, and 0.1, respectively. Instead of a radioactive decay chain, the heating is
+    The kilonova simulation uses a one-dimensional ejecta profile with total mass $0.05~M_\odot$,
+    from $t=0.05$ days to $t=100$ days.
+    The composition is the eight-element solar-derived mixture described in
+    \secref{SecRosseland}. The heating is
     an external power law per unit mass \cite{korobkin2012kilonova},
     $\dot{\epsilon}=10^{10}(t/1~{\rm day})^{-1.3}~{\rm erg~s^{-1}~g^{-1}}$.
-
-    In the full frequency-group calculation, photon packets keep their frequency and interact with the
-    frequency-dependent opacity groups. For that, at each time step the simulation calculates the ionization stages 
-    of each material and goes through all bound-bound lines to calculate the opacity for that temperature and density. 
+    We repeated the kilonova simulation for the six rescaled compositions, with $X_{\rm lan}$
+    between $10^{-6}$ and $10^{-1}$, using the matching opacity table in each case.
+    
+    In the full frequency-group calculation, photon packets retain their frequency and interact with
+    frequency-dependent opacity groups. At each time step the simulation calculates the ionization
+    state of each material and processes its bound-bound line list at the local temperature and density.
     In the single-group calculation, the photon mean free path is set by $\kappa_R^{\rm exp}$,
     interpolated from the opacity table using local $(T,\rho,t)$.
     The table value $f_{\rm abs}$ splits this into absorbing and scattering Rosseland means
@@ -505,69 +541,59 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     deposited energy; for this step we use $\kappa_P^{\rm abs}$, the Planck mean of the saturated
     absorption opacity.
 
-    The ejecta geometries used for the validation are shown in \figref{fig:ejecta_geometry}. 
-    Both simulations are one-dimensional homologous expansions, so the spatial coordinate can be
-    represented by the velocity coordinate $r=vt$. 
     The Type~Ia model uses an exponential density profile matching the W7 model \cite{nomoto1984w7},
-    $\rho \propto t^{-3}\exp(-v/v_e)$, with $v_e=2.7\times10^8~{\rm cm~s^{-1}}$ ($0.009c$) and
-    an outer edge at $0.093c$. The kilonova model uses a flat profile $\rho=\rho_0$ for $v<0.1c$ and
-    $\rho=\rho_0(v/0.1c)^{-4}$ for $0.1c<v<0.4c$, with $\rho_0$ set so the total mass is
-    $0.05~M_\odot$. The $v^{-4}$ outer slope follows the ejecta-density consideration in
-    \cite{hotokezaka2020macronova}.
-
-    \begin{figure}[h]
-    % How to create (run from paper1/urilight):
-    % cd ~/Documents/PHD/URILIGHT/paper1/urilight
-    % python kilonova/make_ejecta_profile.py --nc1 32 --m_msun 0.05 --output_ejecta /tmp/kilonova_ejecta_profile
-    % python plot_ejecta_geometry_paper.py --png  ~/Documents/PHD/URILIGHT/python_opac_calc/clean_ver/build_paper/figs/ejecta_geometry.png
-    \centering
-    \includegraphics[width=0.48\textwidth]{figs/ejecta_geometry.png}
-    \caption{Density profiles of the Type~Ia and kilonova ejecta at $t=1$ day. The simulations assume
-    spherical homologous expansion, so each shell keeps a fixed velocity and its radius grows as $r=vt$.
-    The Type~Ia model is centrally concentrated and slower, while the kilonova model occupies faster,
-    lower-density ejecta.}
-    \label{fig:ejecta_geometry}
-    \end{figure}
+    $\rho(v,t)=\rho_{\rm Ia,0}t^{-3}\exp(-v/v_e)$, normalized to $1.38~M_\odot$, with
+    $v_e=2.7\times10^8~{\rm cm~s^{-1}}$ ($0.009c$) and an outer edge at $0.093c$.
+    The kilonova model has a flat inner profile $\rho=\rho_0t^{-3}$ for $v<0.1c$ and
+    $\rho=\rho_0t^{-3}(v/0.1c)^{-4.5}$ for $0.1c<v<0.4c$, following
+    \cite{hotokezaka2020macronova}, with $\rho_0$ normalized to a total mass of $0.05~M_\odot$.
 
     \figref{fig:comparison} compares the light curves obtained with the single-group calculation,
     using $\kappa_R^{\rm exp}$, to the full frequency-group calculation for both ejecta
     models. The one-group and multigroup results follow the same qualitative trends in both cases,
     showing that the averaged opacity captures the main transport behavior while avoiding the cost of
     recalculating the full frequency-dependent opacity during the transport calculation.
+    For the kilonova we show three lanthanide fractions spanning four decades,
+    $X_{\rm lan}=10^{-5}$, $10^{-2}$, and $10^{-1}$. At peak, the single-group luminosity is
+    $33\%$ brighter, $7\%$ fainter, and $17\%$ brighter than the multigroup value, respectively.
+    After about $10$~days all curves converge, because the ejecta become optically thin and the
+    luminosity simply tracks the heating rate regardless of the opacity.
 
-    \begin{figure}[h]
-    % How to create (run from paper1/urilight):
-    % cd ~/Documents/PHD/URILIGHT/paper1/urilight
-    % python plot_luminosity_paper.py --png  ~/Documents/PHD/URILIGHT/python_opac_calc/clean_ver/build_paper/figs/luminosity_models.png
-    \centering
-    \includegraphics[width=0.48\textwidth]{figs/luminosity_models.png}
-    \caption{Bolometric luminosity from the Type~Ia and kilonova validation simulations. For each ejecta
-    model we compare the single-group calculation using $\kappa_R^{\rm exp}$ with the
-    corresponding full frequency-group calculation.}
-    \label{fig:comparison}
-    \end{figure}
+    \begin{figure*}[t]
+        % How to create (run from python_opac_calc2):
+        % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
+        % python plot_luminosity_models.py --png build_paper/figs/luminosity_models.png
+        \centering
+        \includegraphics[width=\textwidth]{figs/luminosity_models.png}
+        \caption{Bolometric luminosity from the Type~Ia (left) and kilonova (right) validation
+        simulations. For each model we compare the single-group calculation using $\kappa_R^{\rm exp}$
+        (solid, circles) with the corresponding full frequency-group calculation (dashed, squares).
+        The kilonova runs share the same ejecta profile and heating rate and differ only in the
+        lanthanide mass fraction of the composition, and hence in the opacity table.
+        The final observer times, which can receive photons emitted after the simulation ends, are
+        excluded by requiring $t<t_{\rm end}(1-\beta_{\rm max})$.}
+        \label{fig:comparison}
+    \end{figure*}
 
-    \figref{fig:trad_vs_phot} compares the radiation temperature measured from escaping packets in
-    the multigroup Type~Ia calculation to the plasma temperature at the effective photospheric
-    surface in the single-group calculation. The single-group calculation recovers the multigroup
-    $T_{\rm rad}$ well. We show two choices for the effective path factor, $f=1$ and $f=3$, to bracket
-    the geometrical uncertainty. At early times, when $\tau_{\rm abs}\ll\tau_{\rm scat}$, photons
-    undergo many scatterings and the escape problem is closer to the three-dimensional diffusion
-    limit. At late times, when $\tau_{\rm abs}\sim1$, the last absorption surface is closer to the
-    one-dimensional radial limit.
+    We define the effective optical depth from the ejecta edge as
+    $\tau_{\rm eff}=\tau_{\rm abs}(1+\tau_{\rm scat})$, where $\tau_{\rm abs}$ and
+    $\tau_{\rm scat}$ are the integrated absorption and scattering optical depths.
+    \figref{fig:trad_vs_phot} compares the multigroup escape-averaged radiation temperature
+    $T_{\rm rad}$ with the single-group plasma temperature at $\tau_{\rm eff}=1$.
+    At the earliest kilonova epochs, the single-group estimate is about $20$--$35\%$ below
+    $T_{\rm rad}$.
+    The curves are truncated once the outer ejecta cool below $0.15$~eV, because our model neither includes molecular
+    opacity nor provides opacity-table data in this regime.
 
-    \begin{figure}[h]
+    \begin{figure}[t]
     % How to create:
-    % cd ~/Documents/PHD/URILIGHT/paper1/urilight/type1a/add_Trad/mg
-    % python plot_compare_trad_tau1.py --png ~/Documents/PHD/URILIGHT/python_opac_calc/clean_ver/build_paper/figs/trad_vs_phot.png
-    % Script path from python_opac_calc2:
-    % urilight/type1a/add_Trad/mg/plot_compare_trad_tau1.py
+    % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
+    % python plot_trad_paper.py
     \centering
-    \includegraphics[width=0.48\textwidth]{figs/trad_vs_phot.png}
-    \caption{Radiation temperature in the Type~Ia validation simulation. The blue curve shows
-    the multigroup URILIGHT escape-averaged $T_{\rm rad}$. The red curves show the single-group
-    plasma temperature at $\tau_{\rm abs}(1+\tau_{\rm scat})=1$, using path factors $f=1$ and
-    $f=3$.}
+    \includegraphics[width=\columnwidth]{figs/trad_vs_phot.png}
+    \caption{Multigroup escape-averaged radiation temperature compared with the single-group
+    plasma temperature at $\tau_{\rm abs}(1+\tau_{\rm scat})=1$ for Type~Ia and
+    three kilonova lanthanide fractions.}
     \label{fig:trad_vs_phot}
     \end{figure}
 
@@ -578,16 +604,16 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     is marked by a black dashed line. With time, the ejecta cools and the outer layers become more
     transparent.
 
-    On the opacity panel, the red curve is the $\tau=1$ surface: at each $t$ we integrate inward from
-    the outer edge until $\int \kappa_R^{\rm exp}\,\rho\,dR_{\rm eff}=1$, where each velocity shell has
-    radial thickness $\Delta R_i = t\,\Delta v_i$. Because photons diffuse isotropically in three
-    dimensions, we use an effective path $\Delta R_{\rm eff}=3\,\Delta R$ when evaluating the
-    opacity integral in this spherical geometry.
+    On the opacity panel, the red curves are the $\tau_{\rm eff}=1$ surfaces: at each $t$ we
+    integrate $\tau_{\rm abs}$ and $\tau_{\rm scat}$ inward from the outer edge until
+    $\tau_{\rm abs}(1+\tau_{\rm scat})=1$. Each velocity shell has radial thickness
+    $\Delta R_i=t\,\Delta v_i$, and $f$ is a dimensionless path-length factor multiplying its optical depth.
+    We use $f=1$ for radial propagation and $f=3$ to approximate three-dimensional diffusion.
 
-    The cyan dashed curve marks where the random-walk photon leakage time equals the dynamical time,
-    $t_{\rm phot}=t$. Using the same inward integration, the cumulative optical depth to shell $i$ is
-    $\tau_i=\tau_{i+1}+\kappa_{R,i}^{\rm exp}\,\rho_i\,\Delta R_{{\rm eff},i}$, with $\tau=0$ at the
-    outer edge.
+    The cyan curves mark where the random-walk photon leakage time equals the dynamical time,
+    $t_{\rm phot}=t$, for the same two choices of $f$. For these curves, the cumulative optical
+    depth to shell $i$ is
+    $\tau_i=\tau_{i+1}+f\kappa_{R,i}^{\rm exp}\,\rho_i\,\Delta R_i$, with $\tau=0$ at the outer edge.
     A diffusing photon does not cross a shell once: each scatter can send it back, so on average it
     traverses the thickness $(2\tau_i+1)$ times before leaking outward.
     Each traversal takes time $\Delta R_i/c$, so
@@ -595,20 +621,20 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
         \Delta t_i = \frac{(2\tau_i+1)\,\Delta R_i}{c}.
     \end{equation}
     Starting from the outer edge and accumulating inward, we locate the velocity where
-    $t_{\rm phot}=t$. Together, the two curves mark the last-scattering surface and the diffusion
-    depth relevant at time $t$.
+    $t_{\rm phot}=t$. Together, the red and cyan curves mark the effective photosphere and the
+    diffusion depth relevant at time $t$.
 
     \begin{figure*}[t]
     % How to create:
     % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
-    % python plot_profile_colormap.py --png ~/Documents/PHD/URILIGHT/python_opac_calc/clean_ver/build_paper/figs/profile_colormap.png
-    % compare f=1, sqrt(3), 3: add --compare-dreff
+    % python plot_profile_colormap.py --png build_paper/figs/profile_colormap_dreff_compare.png
     \centering
-    \includegraphics[width=\textwidth]{figs/profile_colormap.png}
+    \includegraphics[width=\textwidth]{figs/profile_colormap_dreff_compare.png}
     \caption{$T_{\rm plasma}$ (left) and $\kappa_R^{\rm exp}$ (right) in the Type~Ia validation
     simulation. The black dashed line marks the Ni/IME boundary. 
-    On the opacity map, the red and cyan curves show the $\tau=1$ surface and the
-    $t_{\rm phot}=t$ surface (see text).}
+    On the opacity map, red curves show the $\tau_{\rm abs}(1+\tau_{\rm scat})=1$ surface and
+    cyan curves show the $t_{\rm phot}=t$ surface. Solid curves use $f=1$ and dashed curves use
+    $f=3$ (see text).}
     \label{fig:profile_colormap}
     \end{figure*}
 
@@ -630,34 +656,216 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     one value from a precomputed opacity table.
 
     The speedup depends on which part of the multigroup calculation is the bottleneck.
-    For lanthanide-rich kilonova ejecta, where photon transport through many bound-bound lines
-    can dominate the runtime, the single-group calculation can be about 30 times faster and has
-    significantly smaller numerical noise for the same number of packets. In cases where the main
-    multigroup cost is recalculating the opacity itself, the gain can be even larger; for example,
-    the Type~Ia calculation shown in \figref{fig:comparison} was about 100 times faster in the
-    single-group calculation. This advantage is strongest when the same composition is used many
-    times, since the opacity table can be reused. If many different compositions must be explored,
-    a separate table has to be built for each composition, and this preprocessing can itself require
-    significant runtime.
+    For example, for lanthanide-rich kilonova ejecta, where photon transport through many bound-bound lines
+    can dominate the runtime, the single-group calculation can be about 60 times faster and has
+    smaller numerical noise for the same number of packets.
+
+\section{Typical Effective Rosseland Opacity}
+\label{SecTypicalOpacity}
+
+    Analytic, semi-analytic, and simplified transport calculations of kilonovae require a gray
+    opacity for each ejecta component
+    \cite{villar2017combined,metzger2019kilonovae,collins2023critical,hotokezaka2020macronova,just2022properties}.
+    Common choices are $\kappa\simeq0.5$--$1$~cm$^2$/g for lanthanide-poor material and
+    $\kappa\simeq10$~cm$^2$/g for lanthanide-rich material. Their widespread use reflects the
+    practical need for a constant opacity, even when it is only approximate.
+
+    One approach is to fit the gray opacity to a multigroup light curve or to observations
+    \cite{tanaka2013radiative,villar2017combined}. A single constant does not always work.
+    Hotokezaka \& Nakar \cite{hotokezaka2020macronova} therefore used different opacities in the
+    outer and inner ejecta, while Banerjee et al.\ \cite{banerjee2024diversity} showed that no single
+    value reproduces every epoch of a lanthanide-rich multigroup light curve. Just et al.\
+    \cite{just2022properties} similarly used an opacity that varies with $X_{\rm lan}$ and $T$.
+
+    Another approach is to use a Planck mean as a proxy for the transport opacity
+    \cite{tanaka2020systematic}. This requires choosing representative values of $T$, $\rho$, and
+    $t$, and the result is not the Rosseland mean that controls diffusion.
+
+    \subsection{Determining the representative opacity}
+    \label{SecRepresentativeOpacity}
+
+    Our method supplies a physically defined gray transport opacity without fitting a light curve
+    or selecting a representative thermodynamic point. At each time we locate the diffusion surface
+    where $t_{\rm phot}=t$, denoted $t_{\rm diff}=t$ below, and interpolate
+    $\kappa_R^{\rm exp}(T,\rho,t)$ in the leaking envelope. We then define the
+    effective gray value as the column-mass-weighted Rosseland opacity outside
+    $t_{\rm diff}=t$,
+    \begin{equation}
+        \kappa_{\rm avg}(t)=
+        \frac{\displaystyle\int_{v_{\rm diff}}^{v_{\rm max}}
+            \kappa_R^{\rm exp}\rho\,t\,dv}
+            {\displaystyle\int_{v_{\rm diff}}^{v_{\rm max}}\rho\,t\,dv}
+        =\frac{\tau(v_{\rm diff})}{\Sigma(v_{\rm diff})}.
+        \label{eq:kappa_avg}
+    \end{equation}
+    This is the constant opacity that reproduces the same optical depth through the leaking
+    envelope at that time while following the temperature, density, and time actually sampled by
+    the transport.
+
+    \figref{fig:kappa_composition_slices} isolates the temperature and density dependence. At fixed
+    $\rho=10^{-13}$~g/cm$^3$, increasing $X_{\rm lan}$ raises the opacity strongly below
+    $T\simeq1$~eV. Around $T\simeq1.2$~eV, however, all five kilonova curves fall toward the same
+    opacity: they differ by less than a factor of two despite five decades in $X_{\rm lan}$. At this
+    ionization transition the additional lanthanide lines no longer fill the Rosseland-weighted
+    frequency windows, and the non-lanthanide background sets the opacity floor. This convergence
+    explains why the earliest diffusion-surface opacity and luminosity depend only weakly on
+    $X_{\rm lan}$. The fixed-temperature slice shows that away from this transition the composition
+    ordering remains over the full density range.
+
+    \begin{figure*}[t]
+        % python plot_kappa_eff_paper.py --fig slices --png build_paper/figs/kappa_composition_slices.png
+        \centering
+        \includegraphics[width=\textwidth,height=0.36\textheight,keepaspectratio]{figs/kappa_composition_slices.png}
+        \caption{Effective expansion Rosseland opacity for the five kilonova compositions and one
+        Type~Ia outer-layer composition. Left: temperature dependence at
+        $\rho=10^{-13}$~g/cm$^3$; the dotted line marks $T=1.2$~eV. Right: density dependence at
+        $T=1$~eV. Both compositions are evaluated at exactly one day.}
+        \label{fig:kappa_composition_slices}
+    \end{figure*}
+
+    \figref{fig:kilonova_diffusion_surface} then shows the velocity, temperature, density, and
+    opacity sampled by the diffusion region.
+
+    \begin{figure*}[t]
+        % python plot_kappa_eff_paper.py --fig surface --png build_paper/figs/kilonova_diffusion_surface.png
+        \centering
+        \includegraphics[width=\textwidth,height=0.72\textheight,keepaspectratio]{figs/kilonova_diffusion_surface.png}
+        \caption{Properties sampled by the diffusion region. Top: velocity, plasma temperature, and
+        density at the kilonova diffusion surface $t_{\rm diff}=t$, for six lanthanide mass fractions.
+        The dotted line marks $T=1.8$~eV. Bottom left: local Type~Ia opacity at the diffusion surface.
+        Bottom right: column-averaged kilonova opacity outside the diffusion surface. Black markers
+        show where each surface crosses $v_{\rm diff}=0.3c$ and $0.1c$.}
+        \label{fig:kilonova_diffusion_surface}
+    \end{figure*}
+
+    Increasing $X_{\rm lan}$ keeps the kilonova diffusion surface at larger velocity and lower
+    density for longer. At the earliest times all six surfaces lie at
+    $T_{\rm eff}\simeq1.5$--$1.8$~eV, where the opacity tables converge. Their early
+    $\kappa_{\rm avg}$ values consequently differ by less than a factor of two, and the light curves
+    in \figref{fig:comparison} initially show little lanthanide dependence. As the surface cools,
+    the lanthanide contribution becomes important and the luminosities separate. The diffusion
+    surface never exceeds $1.8$~eV; hotter cells lie deeper and do not set the emerging luminosity.
+
+    The lower panels show the opacity itself. For the Type~Ia calculation the diffusion surface is
+    already inside the $^{56}$Ni-rich layer at the first simulated epoch:
+    $v_{\rm diff}<0.029c$, whereas the Ni/outer-layer boundary is at $0.033c$. We therefore quote
+    only the local Ni-rich opacity at that surface,
+    $\kappa_R^{\rm exp}(v_{\rm diff})\simeq0.05$--$0.07$~cm$^2$/g over the simulated interval.
+    For the kilonova, after the short high-temperature phase, each composition has an extended
+    interval over which $\kappa_{\rm avg}$ changes slowly. The black markers delimit
+    $0.1c<v_{\rm diff}<0.3c$; averaging over this interval gives $0.36$, $0.37$, $0.39$, $0.99$, $4.64$, and
+    $18.45$~cm$^2$/g for $X_{\rm lan}=10^{-6}$, $10^{-5}$, $10^{-4}$, $10^{-3}$,
+    $10^{-2}$, and $10^{-1}$, respectively. These values naturally recover the usual lanthanide-poor and
+    lanthanide-rich opacity scales without calibrating to the light curves.
+
+    \subsection{A composition-dependent gray-opacity prescription}
+
+    To test whether the inferred values depend strongly on the assumed ejecta profile, we repeated
+    the six-composition calculation for outer density slopes $\alpha=-3.5$, $-4.5$, and $-5.5$,
+    and for ejecta masses $0.1$ and $10$ times the fiducial mass. For each run we average
+    \eqref{eq:kappa_avg} over the time during which
+    $0.1c<v_{\rm diff}<0.3c$, weighting uniformly in $\ln t$. This selects the phase during which
+    the diffusion surface crosses the power-law envelope and excludes the final transparent phase,
+    when the luminosity no longer depends on opacity.
+
+    A single fit in $\ln\kappa$ to all 30 simulations gives
+    \begin{equation}
+        \boxed{\displaystyle
+        \kappa_{\rm avg}(X_{\rm lan}) =
+        0.34 + 99\,X_{\rm lan}^{0.72}\ {\rm cm^2\,g^{-1}} .}
+        \label{eq:kappa_xlan}
+    \end{equation}
+
+    \begin{figure*}[!t]
+        % python plot_kappa_eff_paper.py --fig kappax --png build_paper/figs/kappa_vs_xlan.png
+        \centering
+        \includegraphics[width=\textwidth,height=0.36\textheight,keepaspectratio]{figs/kappa_vs_xlan.png}
+        \caption{Composition dependence of the representative gray opacity. Left: density profiles at
+        one day; the shaded region marks $0.1c<v<0.3c$. Right: logarithmic-time-weighted mean and
+        standard deviation of $\kappa_{\rm avg}$ while the diffusion surface crosses that interval.
+        Colors identify ejecta profiles rather than compositions. The dashed curve is one fit to all
+        30 simulations, given by \eqref{eq:kappa_xlan}.}
+        \label{fig:kappa_xlan}
+    \end{figure*}
+
+    \figref{fig:kappa_xlan} shows that composition produces a nearly two-order-of-magnitude change,
+    whereas changing the density profile mainly shifts the normalization. The fit applies only to
+    our adopted eight-element composition and atomic data; different representative elements or a
+    more complete atomic model can give different coefficients. It should therefore be treated as
+    an approximate prescription rather than a universal opacity. Its sublinear exponent and
+    low-$X_{\rm lan}$ floor are consistent with the saturation of strong lanthanide lines discussed
+    by Kasen et al.\ \cite{kasen2013opacities} and with the empirical prescription of
+    Just et al.\ \cite{just2022properties}; the difference is that \eqref{eq:kappa_xlan} is derived from the
+    Rosseland transport opacity rather than fitted to a bolometric light curve.
+
+    \subsection{Why an approximately constant opacity produces a power-law light curve}
+
+    As shown in \secref{SecRepresentativeOpacity}, the effective opacity remains nearly constant
+    through most of the diffusion-dominated phase. We can therefore use a constant-opacity
+    analytical model to explain the kilonova luminosity plateau in \figref{fig:comparison}.
+    Consider homologous ejecta with gray opacity $\kappa$,
+    density $\rho(v,t)=A t^{-3}v^\alpha$, and heating per unit mass
+    $\dot{\epsilon}\propto t^{-\beta}$. The optical depth exterior to velocity $v$ is
+    \begin{equation}
+        \tau(v,t)=\int_v^{v_{\rm max}}\kappa\rho\,t\,dv'
+        \propto \kappa t^{-2}v^{\alpha+1},
+    \end{equation}
+    where the outer-boundary term is negligible for $\alpha<-1$ and
+    $v\ll v_{\rm max}$. With $t_{\rm diff}\sim\tau vt/c$, the diffusion surface
+    $t_{\rm diff}=t$ follows
+    \begin{equation}
+        v_{\rm diff}(t)\propto
+        \left(\frac{t^2}{\kappa}\right)^{1/(\alpha+2)}.
+    \end{equation}
+    The mass exterior to this surface is $M(>v_{\rm diff})\propto
+    v_{\rm diff}^{\alpha+3}$ for $\alpha<-3$. While the diffusion surface is inside the
+    power-law envelope, the luminosity is therefore
+    \begin{equation}
+        L(t)\simeq \dot{\epsilon}(t)M(>v_{\rm diff})
+        \propto
+        \kappa^{-(\alpha+3)/(\alpha+2)}
+        t^{-\beta+2(\alpha+3)/(\alpha+2)} .
+        \label{eq:kilonova_powerlaw}
+    \end{equation}
+    For our $\alpha=-4.5$ profile and $\beta=1.3$ heating law,
+    $L\propto\kappa^{-0.6}t^{-0.1}$, so the luminosity is almost constant while the
+    diffusion surface moves through the power-law envelope. This is the same physical scaling used
+    in analytic kilonova models \cite{waxman2018constraints}. It explains both features of the
+    kilonova panel in \figref{fig:comparison}: each composition produces an extended luminosity
+    plateau, while increasing $X_{\rm lan}$ raises $\kappa$ and lowers the plateau approximately as
+    $\kappa^{-0.6}$. Once the ejecta become transparent,
+    all of the deposited energy escapes and $L$ instead approaches
+    $M_{\rm ej}\dot{\epsilon}\propto t^{-1.3}$, as seen after approximately ten days in
+    \figref{fig:comparison}.
+
+   
 
 \section{Summary}
 \label{SecSummary}
 
-We defined the effective expansion opacity, $\kappa_{\rm exp}$, for media in
-homologous expansion. The opacity is defined from the average distance an outward travelling photon
-needs to reach optical depth unity, $\kappa_{\rm exp} = 1/(\rho \Delta x)$.
-Taking the Rosseland mean of $\kappa_{\rm exp}$ gives $\kappa_R^{\rm exp}$, which is not dependent on the frequency resolution.
-We showed this for both iron and erbium, representing iron-group Type~Ia material and lanthanide-rich kilonova
-material. We also compared $\kappa_R^{\rm exp}$ with the Planck mean opacity for
-Type~Ia core, Type~Ia outer-layer, and kilonova compositions. The ratio between the two depends
-strongly on temperature and density, showing that the Planck mean is not a reliable replacement for
-$\kappa_R^{\rm exp}$.
+We introduced the effective expansion opacity,
+$\kappa_{\rm exp}=1/(\rho\Delta x)$, based on the distance an outward-travelling photon covers
+before reaching optical depth unity in homologous expansion. Taking its Rosseland mean defines
+$\kappa_R^{\rm exp}$, a gray transport opacity that accounts for bound-bound interactions
+encountered as the photon redshifts. Unlike the ordinary Rosseland mean of narrow lines,
+$\kappa_R^{\rm exp}$ converges with frequency resolution. Its ratio to the Planck mean varies
+strongly with temperature and density and reaches approximately $10^2$ for the kilonova
+composition, showing that the Planck mean is not a reliable transport-opacity proxy.
 
-Finally, we tested single-group radiation transport simulations using the new opacity tables in
-URILIGHT. The single-group light curves reproduce the main behavior of full frequency-group
-calculations for both Type~Ia supernova and kilonova ejecta. The remaining differences are expected
-because a gray treatment cannot capture all effects of temperature gradients and frequency-dependent
-transport.
+Single-group URILIGHT calculations using $\kappa_R^{\rm exp}$ reproduce the main light-curve trends
+of multigroup calculations for Type~Ia supernova and three kilonova compositions spanning four
+decades in $X_{\rm lan}$. The kilonova peak luminosities differ by $7$--$33\%$, while allowing the
+calculation to run faster by orders of magnitude.
+
+For kilonova ejecta, we constructed an eight-element composition from the solar $r$-process
+residual pattern and varied its lanthanide mass fraction from $X_{\rm lan}=10^{-6}$ to $10^{-1}$.
+Following the temperature, density, and opacity sampled by the diffusion region gives
+representative opacities from $0.36$ to $18.45$~cm$^2$/g. For the adopted composition and atomic
+data, the tested ejecta profiles are approximately described by
+$\kappa_{\rm avg}=0.34+99X_{\rm lan}^{0.72}$~cm$^2$/g. These coefficients are model dependent and
+should not be interpreted as a universal opacity prescription. The effective opacity remains
+nearly constant during most of the diffusion-dominated phase, explaining the luminosity plateau
+through the scaling $L\propto\kappa^{-0.6}t^{-0.1}$.
 
 The Python code for building opacity tables using this algorithm is available at 
 \url{https://github.com/roee2000/expansion_opacity_calculation}.
