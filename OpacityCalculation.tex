@@ -31,7 +31,6 @@
 %% Title, authors and addresses
 
 \author[1]{Roy G. Yaron}
-\author[1]{Ehud Nakar\corref{cor1}}
 
 \cortext[cor1]{Corresponding author: \href{mailto:udini@tauex.tau.ac.il}{udini@tauex.tau.ac.il}}
 
@@ -57,8 +56,8 @@ $\kappa_{\rm avg}\simeq0.34+99X_{\rm lan}^{0.72}$~cm$^2$/g during the diffusion-
 for the adopted composition and atomic data.
 Single-group Monte Carlo simulations using this opacity reproduce the trends of full frequency-group
 calculations for Type~Ia supernova and kilonova ejecta, with kilonova peak luminosities differing
-by $7$--$33\%$. For lanthanide-rich kilonova ejecta, the single-group calculation is about
-60 times faster for the same number of packets.
+by $7$--$33\%$. For lanthanide-rich kilonova ejecta, the single-group calculation is faster by around 2 
+orders of magnitude.
 \end{abstract}
 
 %% Keywords
@@ -423,6 +422,52 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     \figref{fig:rosseland_planck_sn1a_outer}, and \figref{fig:rosseland_planck_kilonova}
     show $\kappa_R^{\rm exp}$ and the ratio $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ for
     the $^{56}{\rm Ni}$ decay chain, Type~Ia outer-layer composition, and kilonova composition.
+
+    \begin{figure*}[t]
+        % How to create (run from python_opac_calc2):
+        % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
+        % python plot_opac_cont.py -d opac_libs/tables/NiCoFe_t1_t10 -t 1 -c 5e-3 0.2 --ratio-limits 1 40 --planck-rosseland --png -yl 1e-14 1e-10
+        \centering
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=0.48\textwidth]{figs/ni_rosseland_t1d.png}\hspace{0.02\textwidth}%
+        \includegraphics[width=0.48\textwidth]{figs/ni_t1d_ratio.png}}
+        \caption{Type~Ia core composition at $t=1$~day: $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right).
+        Density $10^{-14}$--$10^{-10}$~g/cm$^3$.}
+        \label{fig:rosseland_planck_ni}
+\end{figure*}
+
+\begin{figure*}[t]
+        % How to create (run from python_opac_calc2):
+        % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
+        % python plot_opac_cont.py -d opac_libs/tables/SN1A_t1_t10_table -t 1 -c 5e-3 0.2 --ratio-limits 0.9 6 --planck-rosseland --png -yl 1e-14 1e-10
+        \centering
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=0.48\textwidth]{figs/sn1a_outer_rosseland_t1d.png}\hspace{0.02\textwidth}%
+        \includegraphics[width=0.48\textwidth]{figs/sn1a_outer_ratio_t1d.png}}
+        \caption{Type~Ia outer-layer composition at $t=1$~day: $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right).
+        The composition is Si, S, Ar, and Ca with mass fractions 0.535, 0.32, 0.062, and 0.083.
+        Density $10^{-14}$--$10^{-10}$~g/cm$^3$.}
+        \label{fig:rosseland_planck_sn1a_outer}
+\end{figure*}
+
+\begin{figure*}[t]
+    % How to create (run from python_opac_calc2):
+    % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
+    % python plot_opac_cont.py -d opac_libs/tables/reps8_t1_table -t 1 -yl 1e-16 1e-11 -xl 0.15 2 -c 1e-1 1e2 --ratio-limits 1.5 50 --planck-rosseland --png
+    % cp t_1days_rosseland.png t_1days_ratio.png $BUILD_PAPER/figs/ as kilonova_rosseland_t1d.png, kilonova_ratio_t1d.png
+    \centering
+    \makebox[\textwidth][c]{%
+    \includegraphics[width=0.48\textwidth]{figs/kilonova_rosseland_t1d.png}\hspace{0.02\textwidth}%
+    \includegraphics[width=0.48\textwidth]{figs/kilonova_ratio_t1d.png}}
+    \caption{Solar-derived kilonova composition ($X_{\rm lan}=0.121$) at $t=1$~day:
+    $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right).
+    Density $10^{-16}$--$10^{-11}$~g/cm$^3$, the range spanned by the diffusion surface in the
+    transport calculations of \secref{SecRadiationSimulations}. The temperature range is cut at
+    $2$~eV, above which the mean ionization saturates at the three-electron limit of our atomic
+    data (see text). Both colorbars are clipped at both ends; within the plotted range
+    $\kappa_R^{\rm exp}$ spans $0.006$--$103$~cm$^2$/g and the ratio spans $1.6$--$132$.}
+    \label{fig:rosseland_planck_kilonova}
+\end{figure*}
     
     For both the Ni-rich and kilonova compositions, where bound-bound lines dominate,
     the opacity tends to decrease with density.
@@ -450,52 +495,6 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     so the opacity that shapes the light curves is always
     taken from within the reliable range, even though the deeply buried cells are assigned
     higher temperatures.
-
-\begin{figure*}[t]
-        % How to create (run from python_opac_calc2):
-        % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
-        % python plot_opac_cont.py -d opac_libs/tables/NiCoFe_t1_t10 -t 1 -c 5e-3 0.2 --ratio-limits 1 40 --planck-rosseland --png -yl 1e-14 1e-10
-        \centering
-        \makebox[\textwidth][c]{%
-        \includegraphics[width=0.48\textwidth]{figs/ni_rosseland_t1d.png}\hspace{0.02\textwidth}%
-        \includegraphics[width=0.48\textwidth]{figs/ni_t1d_ratio.png}}
-        \caption{Type~Ia core composition at $t=1$~day: $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right).
-        Density $10^{-14}$--$10^{-10}$~g/cm$^3$.}
-        \label{fig:rosseland_planck_ni}
-\end{figure*}
-
-\begin{figure*}[t]
-        % How to create (run from python_opac_calc2):
-        % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
-        % python plot_opac_cont.py -d opac_libs/tables/SN1A_t1_t10_table -t 1 -c 5e-3 0.2 --ratio-limits 0.9 6 --planck-rosseland --png -yl 1e-14 1e-10
-        \centering
-        \makebox[\textwidth][c]{%
-        \includegraphics[width=0.48\textwidth]{figs/sn1a_outer_rosseland_t1d.png}\hspace{0.02\textwidth}%
-        \includegraphics[width=0.48\textwidth]{figs/sn1a_outer_ratio_t1d.png}} 
-        \caption{Type~Ia outer-layer composition at $t=1$~day: $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right).
-        The composition is Si, S, Ar, and Ca with mass fractions 0.535, 0.32, 0.062, and 0.083.
-        Density $10^{-14}$--$10^{-10}$~g/cm$^3$.}
-        \label{fig:rosseland_planck_sn1a_outer}
-\end{figure*}
-
-\begin{figure*}[t]
-    % How to create (run from python_opac_calc2):
-    % cd ~/Documents/PHD/URILIGHT/python_opac_calc2
-    % python plot_opac_cont.py -d opac_libs/tables/reps8_t1_table -t 1 -yl 1e-16 1e-11 -xl 0.15 2 -c 1e-1 1e2 --ratio-limits 1.5 50 --planck-rosseland --png
-    % cp t_1days_rosseland.png t_1days_ratio.png $BUILD_PAPER/figs/ as kilonova_rosseland_t1d.png, kilonova_ratio_t1d.png
-    \centering
-    \makebox[\textwidth][c]{%
-    \includegraphics[width=0.48\textwidth]{figs/kilonova_rosseland_t1d.png}\hspace{0.02\textwidth}%
-    \includegraphics[width=0.48\textwidth]{figs/kilonova_ratio_t1d.png}}
-    \caption{Solar-derived kilonova composition ($X_{\rm lan}=0.121$) at $t=1$~day:
-    $\kappa_R^{\rm exp}$ (left) and $\kappa_P^{\rm tot}/\kappa_R^{\rm exp}$ ratio (right).
-    Density $10^{-16}$--$10^{-11}$~g/cm$^3$, the range spanned by the diffusion surface in the
-    transport calculations of \secref{SecRadiationSimulations}. The temperature range is cut at
-    $2$~eV, above which the mean ionization saturates at the three-electron limit of our atomic
-    data (see text). Both colorbars are clipped at both ends; within the plotted range
-    $\kappa_R^{\rm exp}$ spans $0.006$--$103$~cm$^2$/g and the ratio spans $1.6$--$132$.}
-    \label{fig:rosseland_planck_kilonova}
-\end{figure*}
 
 
 \section{Monte Carlo Simulation With Single Group Opacity}
@@ -702,15 +701,35 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
     envelope at that time while following the temperature, density, and time actually sampled by
     the transport.
 
-    \figref{fig:kappa_composition_slices} isolates the temperature and density dependence. At fixed
-    $\rho=10^{-13}$~g/cm$^3$, increasing $X_{\rm lan}$ raises the opacity strongly below
-    $T\simeq1$~eV. Around $T\simeq1.2$~eV, however, all five kilonova curves fall toward the same
-    opacity: they differ by less than a factor of two despite five decades in $X_{\rm lan}$. At this
-    ionization transition the additional lanthanide lines no longer fill the Rosseland-weighted
-    frequency windows, and the non-lanthanide background sets the opacity floor. This convergence
-    explains why the earliest diffusion-surface opacity and luminosity depend only weakly on
-    $X_{\rm lan}$. The fixed-temperature slice shows that away from this transition the composition
-    ordering remains over the full density range.
+    \figref{fig:all_lanthanides_opacity} shows that the opacity decrease near
+    $T\simeq1.2$~eV is a nearly universal property of the high-opacity lanthanides in the
+    NIST/HFR atomic database adopted here, rather than a peculiarity of the lanthanides in our
+    eight-element mixture. At this temperature the triply ionized state (ion IV) becomes dominant.
+    Our frequency-dependent calculations for Nd, Eu, and Er show relatively low opacity,
+    $\kappa_{\rm exp}\lesssim0.1$~cm$^2$/g, at $h\nu/kT\lesssim2$, even while most of the spectrum
+    remains highly opaque. This likely reflects the smaller number of low-frequency lines of the
+    triply ionized ions. These low-opacity frequencies strongly reduce the harmonic Rosseland mean
+    but have much less influence on the Planck mean. The feature is present for all of
+    the lanthanides with large opacity in this database.
+
+    \begin{figure*}[t]
+        \centering
+        \includegraphics[width=\textwidth]{figs/all_lanthanides_opacity.pdf}
+        \caption{Temperature dependence of the effective expansion Rosseland mean (left) and
+        total Planck mean (right) for all lanthanides in the adopted NIST/HFR database, evaluated
+        at $\rho=10^{-13}$~g/cm$^3$ and $t=1$~day.}
+        \label{fig:all_lanthanides_opacity}
+    \end{figure*}
+
+    \figref{fig:kappa_composition_slices} isolates the corresponding temperature and density
+    dependence of the mixtures. At fixed $\rho=10^{-13}$~g/cm$^3$, increasing $X_{\rm lan}$
+    raises the opacity strongly below $T\simeq1$~eV. Around $T\simeq1.2$~eV, however, all five
+    kilonova curves fall toward the same opacity: they differ by less than a factor of two despite
+    five decades in $X_{\rm lan}$. The lanthanide lines no longer fill the low-frequency
+    Rosseland-weighted windows, and the non-lanthanide background sets the opacity floor. This
+    convergence explains why the earliest diffusion-surface opacity and luminosity depend only
+    weakly on $X_{\rm lan}$. The fixed-temperature slice shows that away from this transition the
+    composition ordering remains over the full density range.
 
     \begin{figure*}[t]
         % python plot_kappa_eff_paper.py --fig slices --png build_paper/figs/kappa_composition_slices.png
@@ -718,8 +737,8 @@ opacity \sep  Rosseland mean \sep expansion opacity  \sep kilonova \sep supernov
         \includegraphics[width=\textwidth,height=0.36\textheight,keepaspectratio]{figs/kappa_composition_slices.png}
         \caption{Effective expansion Rosseland opacity for the five kilonova compositions and one
         Type~Ia outer-layer composition. Left: temperature dependence at
-        $\rho=10^{-13}$~g/cm$^3$; the dotted line marks $T=1.2$~eV. Right: density dependence at
-        $T=1$~eV. Both compositions are evaluated at exactly one day.}
+        $\rho=10^{-13}$~g/cm$^3$. Right: density dependence at
+        $T=0.7$~eV. Both compositions are evaluated at exactly one day.}
         \label{fig:kappa_composition_slices}
     \end{figure*}
 
