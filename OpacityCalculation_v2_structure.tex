@@ -42,51 +42,71 @@ opacity \sep expansion opacity \sep Rosseland mean \sep kilonova \sep Type Ia su
 \section{Introduction}
 \label{SecIntro}
 
-\section{Expansion Opacity and Rosseland Averaging}
+\section{Rosseland Expansion Opacity under Relevant Ejecta Conditions}
 \label{SecExpansion}
 
-\subsection{Expansion Opacity}
-1. How kappa is constructed in Karp's work.
-2. Check if I want to have slightly different implemntion due to practical reasons. 
-(Maybe) Show its accurate enogh to use Pinto and Eastman formalism even for rosseland as long as we use low amount of bins.
-
-\subsection{Numerical Construction and Frequency Convergence}
+\subsection{Expansion Opacity and Rosseland Averaging}
+1. How the opacities are constructed in Karp's and Pinto and Eastman formalisms.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\columnwidth]{figs/kappa_smoothed_vs_raw.png}\\[0.5em]
     \includegraphics[width=\columnwidth]{figs/kappa_smoothed_vs_raw_error.png}
     \caption{Illustrates unsaturated, saturated, and effective expansion opacity
     for a single thermodynamic point (Fe example).}
     \label{fig:BB_line_example}
 \end{figure}
 
-\begin{figure}[h]
+Technically, Karp at el didnt discuesed the frequency bining in their work.
+We use a slighlt change where we take for a singel bin with tau>1 the Pinto and Eastman opacity. 
+
+(In the appendix we show) Its accurate enogh to use Pinto and Eastman formalism for rosseland as long as we use low amount of bins.
+
+The convergence figure is in Appendix~\ref{AppInterpolation}.
+ 
+
+\subsection{Rosseland opacity at Type Ia and Kilonova conditions}
+The Rosseland depends on T, rho, t and compotions.
+
+Discuess the compositon:
+
+For type1A:  $^{56}$Ni--$^{56}$Co--$^{56}$Fe and the Si/S/Ar/Ca outer-layer mixture.
+
+For kilonova: In nature all materials exist. In this work, we used an eight-element mixture  
+with fraction based on solar $r$-process abundance pattern. 
+
+Details on abundance mapping and cumulative-mass figure are in Appendix~\ref{AppComposition}. 
+
+State the atomic DB we used (HRF, kurcuz, HULLAC)
+
+Since its the most important factor, we varied $X_{\rm lan}$ and neglected actinide.
+
+Rosseland-opacity trends are shown in Figure~\ref{fig:kappa_composition_slices}. 
+
+Present the strong density dependence and for above 1 \% lanthanide mass fraction the opacity drop around $1$~eV.
+Discuss a possible light-curve consequence of the opacity increase as the ejecta cool below the minimum; 
+more about this will be discussed in Section~\ref{SecEarlyFeature}.
+
+\begin{figure*}[t]
     \centering
-    \includegraphics[width=\columnwidth]{figs/convergence_Fe_rho1.00e-13_t20.0days.png}\\[0.5em]
-    \includegraphics[width=\columnwidth]{figs/convergence_Er_rho1.00e-12_t1.0days.png}
-    \caption{Convergence of $\kappa_R^{\rm exp}$ vs frequency resolution for Fe and Er.
-    Shows that the gray expansion mean is numerically stable for practical binning.}
-    \label{fig:convergence}
-\end{figure}
+    \includegraphics[width=\textwidth,height=0.36\textheight,keepaspectratio]{figs/kappa_composition_slices.png}
+    \caption{Mixture $\kappa_R^{\rm exp}(T)$ and $\kappa_R^{\rm exp}(\rho)$ slices for different kilonova and Type Ia compositions.}
+    \label{fig:kappa_composition_slices}
+\end{figure*}
 
-\subsection{Atomic Data and Compositions}
-\label{SecTables}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\columnwidth]{figs/kilonova_composition.png}
-    \caption{Eight-element kilonova mix from solar $r$-process residuals.}
-    \label{fig:kilonova_composition}
-\end{figure}
-
-\subsection{Transport Implementation and Ejecta Models}
-\label{SecTransportSetup}
-
-\section{Accuracy and Efficiency of the Gray Treatment}
+\clearpage
+\section{Radiation Transport with Gray Opacity Tables}
 \label{SecRadiationSimulations}
 
-\subsection{Type Ia and Kilonova Bolometric Light Curves}
+
+\subsection{Single-Group and Multigroup Simulations: Setup and Light-Curve Comparison}
+\label{SecTransportSetup}
+General explanstion how the urilight works, describe the density profile at time t0,
+the decay chain and energy deposition. How temperature is determined in multigroup by emissivity and absorption
+and in one group by the planck mean opacity of the Pinto and Eastman formalism and absorption to scatter ratio.
+Photons travel a distance according to the rosseland mean opacity of the Karp's formalism.
+
+Compare the single-group and multigroup luminosity curves in Figure~\ref{fig:comparison}.
 
 \begin{figure*}[t]
     \centering
@@ -96,7 +116,24 @@ opacity \sep expansion opacity \sep Rosseland mean \sep kilonova \sep Type Ia su
     \label{fig:comparison}
 \end{figure*}
 
-\subsection{Characteristic Radiation Temperatures}
+\subsection{Escaping Radiation Temperatures}
+\label{SecTemperatureStructure}
+Show the temprature and kappa maps for kilonova (switched from SN1A) fig~\ref{fig:profile_colormap}.
+
+Define the diffusion and photosphere surfaces and explain how their velocities are calculated from the kappa(t, v) maps. 
+
+Use these definitions throughout the following sections.
+
+Extracted emitted radiation temperature profile is shown in Figure~\ref{fig:trad_vs_phot}.
+
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figs/kilonova_lan10_profile_colormap.png}
+    \caption{SN~Ia $T_{\rm plasma}$ and $\kappa_R^{\rm exp}$ maps with diffusion /
+    photosphere surfaces overlaid.}
+    \label{fig:profile_colormap}
+\end{figure*}
 
 \begin{figure}[t]
     \centering
@@ -106,12 +143,39 @@ opacity \sep expansion opacity \sep Rosseland mean \sep kilonova \sep Type Ia su
     \label{fig:trad_vs_phot}
 \end{figure}
 
-\subsection{Computational Cost}
 
+
+
+\subsection{Computational Cost}
+1g calculations can easily be 100 times faster than multigroup calculations. They do demend to calculate the opacity tables
+in advance which might take a significant time.
+
+Maybe this subsection should be emitted and the results will be merged with the first subsection. 
+
+
+\clearpage
 \section{The Effective Opacity of Kilonova Ejecta}
 \label{SecTypicalOpacity}
+\subsection{Time Evolution and Composition Dependence of the Effective Opacity}
+Use the diffusion surface defined in Section~\ref{SecTemperatureStructure} to calculate the representative 
+opacity of the overlying ejecta for both kilonova and Type 1A. (maybe its worth to calculate also the photosphere opacity)
 
-\subsection{Diffusion Depth and Column-Averaged Opacity}
+Describe the conditions on the diffusion surface as shown in Figure~\ref{fig:kilonova_diffusion_surface}. 
+(We can see on the density and T in Figure~\ref{fig:kilonova_diffusion_surface} the prints of the points where
+$v_{\rm phot} = 0.1c$ and the density profile become constant.
+Its visable by the density power law change and by the temperature drop.)
+
+1. Define the column-density-weighted opacity above the diffusion surface using Eq.~\ref{eq:kappa_avg}.
+
+2. Show the evolution of this average opacity in Figure~\ref{fig:diffusion_opacity_evolution}.
+
+3. There is an almost constant opacity for kilonovae (for every lanthanide mass fractions) in the times where $0.2<T_{\rm diff}<1$~eV.
+We average over the cooling interval $0.2<T_{\rm diff}<1$~eV with weights in $\ln t$.
+
+4. The plateau mean opacity is $\kappa(X_{\rm lan})$ and $\kappa$ of type1A. 
+Show the $\kappa(X_{\rm lan})$ is rouboust for different density profiles in figure~\ref{fig:kappa_xlan}.
+
+
 \begin{equation}
     \label{eq:kappa_avg}
     \kappa_{\rm avg}(t)
@@ -123,110 +187,148 @@ opacity \sep expansion opacity \sep Rosseland mean \sep kilonova \sep Type Ia su
     \frac{\tau(v_{\rm diff})}{\Sigma(v_{\rm diff})}.
 \end{equation}
 
-\subsection{Thermodynamic Evolution and the Emergence of Lanthanide Dependence}
 
 \begin{figure*}[t]
     \centering
     \includegraphics[width=\textwidth,height=0.72\textheight,keepaspectratio]{figs/kilonova_diffusion_surface.png}
-    \caption{Diffusion-surface $v$, $T$, $\rho$, and
-    $\kappa_{\rm avg}(t)$ for six $X_{\rm lan}$; Type~Ia local $\kappa$ panel included.}
+    \caption{Diffusion-surface velocity, temperature, and density versus time
+    for six kilonova lanthanide mass fractions $X_{\rm lan}$.}
     \label{fig:kilonova_diffusion_surface}
 \end{figure*}
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width=\textwidth,height=0.36\textheight,keepaspectratio]{figs/kappa_composition_slices.png}
-    \caption{Mixture $\kappa_R^{\rm exp}(T)$ and $\kappa_R^{\rm exp}(\rho)$ slices.}
-    \label{fig:kappa_composition_slices}
+    \includegraphics[width=\textwidth]{figs/kilonova_diffusion_surface_opacity.png}
+    \caption{Opacity versus time: local Rosseland opacity at the Type~Ia
+    diffusion surface (left) and column-density-weighted opacity above the
+    kilonova diffusion surface (right). Black markers delimit the sampled
+    cooling interval $0.2<T_{\rm diff}<1$~eV, truncated where the diffusion
+    surface becomes undefined.}
+    \label{fig:diffusion_opacity_evolution}
 \end{figure*}
-
-\subsection{Representative Opacities Across Compositions and Ejecta Profiles}
 
 \begin{figure*}[!t]
     \centering
     \includegraphics[width=\textwidth,height=0.36\textheight,keepaspectratio]{figs/kappa_vs_xlan.png}
-    \caption{$\kappa_{\rm avg}$ vs $X_{\rm lan}$ for five ejecta profiles + fit.}
+    \caption{$\kappa_{\rm avg}$ vs $X_{\rm lan}$ for five ejecta profiles and a global fit,
+    averaging in $\ln t$ over $0.2<T_{\rm diff}<1$~eV where the diffusion surface is defined.
+    Error bars show the weighted temporal standard deviation.}
     \label{fig:kappa_xlan}
 \end{figure*}
 
-\subsection{A Composition-Dependent Opacity Prescription and Its Light-Curve Implications}
 \begin{equation}
     \label{eq:kappa_xlan}
     \boxed{
     \kappa_{\rm avg}(X_{\rm lan})
     =
-    0.34 + 99\,X_{\rm lan}^{0.72}\ {\rm cm^{2}\,g^{-1}}.
+    0.197 + 93.82\,X_{\rm lan}^{0.691}\ {\rm cm^{2}\,g^{-1}}.
     }
 \end{equation}
 
+
+\subsection{A Possible Early-Time Kilonova Signature of the Opacity Increase}
+\label{SecEarlyFeature}
+We can see the luminosity decline between 0.05 and 0.4 days in the high-lanthanide compositions in Figure~\ref{fig:comparison}.
+This is correlated with the opacity increase when T cools below 1eV.
+
+Its reasonable to assume the real observed density profile obey a power law and
+that as we shown for T<1eV the opacity is almost constant.
+
+(I would like to consult this part with you.)
+Then we can show the analytical model for the luminosity given a constatnt kappa and density power law.
+Then we can think of a way to extract the change in the opacity and show how we can relate this to the lanthnide fraction.
+
+To ensure the opacity drop is not a feature of the specific material chosen or the specific DB used (but a general feature), in
+Figure~\ref{fig:all_lanthanides_opacity} we show the opacity for all lanthanides in the HRF DB and 3 materials from HULLAC DB.
+
+Figure~\ref{fig:all_lanthanides_opacity} shows a general trend across the
+lanthanides toward decreasing Rosseland opacity as the temperature increases
+from approximately $1$ to $1.5$~eV, although individual elements show exceptions.
+
+This decrease is especially clear in the black curve, which represents a mixture
+of all lanthanides with equal atomic number fractions, rather than an arithmetic
+average of their individual opacities. We note that the decrease in the opacity appears
+mainly for the Rosseland mean and not for the Planck mean.
+
+The HRF--HULLAC comparison for Ho, Er, and Tm in panel (c) partially
+reproduces this behavior across datasets; its robustness to the choice of
+atomic data therefore remains uncertain.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figs/lanthanide_opacity_main.png}
+    \caption{Temperature dependence of (a) Rosseland and (b) total Planck mean
+    opacities for individual lanthanides in the HRF database. Black curves show
+    a mixture of all lanthanides with equal atomic number fractions.
+    (c) Rosseland opacities for Ho, Er, and Tm from HRF and HULLAC.}
+    \label{fig:all_lanthanides_opacity}
+\end{figure*}
+
+\clearpage
 \section{Discussion and Conclusions}
 \label{SecSummary}
 
 \appendix
 
-\section{Frequency-Bin Interpolation and Limiting Cases}
+\section{Sensitivity to Frequency-Bin Resolution}
 \label{AppInterpolation}
 
-\begin{equation}
-    \kappa_{\rm bb}^{\rm sat}(\nu)
-    = \sum_l \frac{\nu_l}{\rho c t}\,\delta(\nu-\nu_l)\,(1-e^{-\tau_l}),
-\end{equation}
-\begin{equation}
-    \kappa_{\rm bb}^{\rm unsat}(\nu)
-    = \sum_l \frac{\nu_l}{\rho c t}\,\delta(\nu-\nu_l)\,\tau_l .
-\end{equation}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{figs/convergence_Fe_rho1.00e-12_t3.0days.png}\\[0.5em]
+    \includegraphics[width=\columnwidth]{figs/convergence_Er_rho1.00e-12_t1.0days.png}
+    \caption{Convergence of $\kappa_R^{\rm exp}$ vs frequency resolution for Fe and Er.
+    It Shows that the rosseland of Pinto and Eastman for low frequency resultion is accurate up to 20\%.}
+    \label{fig:convergence}
+\end{figure}
 
-\begin{equation}
-    \label{eq:kappa_eff}
-    \kappa_{\rm exp}(\nu_i)
-    = \frac{\sum_l (1-e^{-\tau_l})}{\rho\,c t\,\ln(\nu_{i+1}/\nu_i)}
-      + \kappa_{\rm T} + \kappa_{\rm ff}(\nu_i).
-\end{equation}
+Tell Pinto and Eastman formalism give to low opacity for infinite frequency resolution.
 
-\section{Opacity Maps and Comparison with Planck Means}
+For low frequency resolution its not accurate but close to the "real results" based
+on the more accurate karp's formalism. This prove that for large bins with tau>1 the lines are apporximatly randomly distributed.
+
+\clearpage
+\section{Construction of the Kilonova Composition}
+\label{AppComposition}
+Describe the solar $r$-process residuals, conversion from number abundance
+to mass, restriction to $90<A\leq215$, and mapping of the eight mass-number
+windows onto Zr, Ru, Xe, Nd, Eu, Er, Re, and Pb.
+
+Explain where I got the data from,
+
+the normalization and the rescaling of the lanthanide and
+non-lanthanide components at fixed relative proportions within each group.
+
+Since I dont have lanthnide here maybe to give some approximate number for how much should be.
+
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figs/kilonova_composition.png}
+    \caption{Cumulative mass of the solar $r$-process abundance pattern over
+    $90<A\leq215$, with the eight representative elements and their mass fractions.}
+    \label{fig:kilonova_composition}
+\end{figure}
+
+\section{Kilonova Opacity Maps}
 \label{AppOpacityMaps}
-
-\begin{figure*}[t]
-    \centering
-    \includegraphics[width=0.48\textwidth]{figs/ni_rosseland_t1d.png}\hspace{0.02\textwidth}%
-    \includegraphics[width=0.48\textwidth]{figs/ni_t1d_ratio.png}
-    \caption{SN~Ia core: $\kappa_R^{\rm exp}$ and $\kappa_P/\kappa_R^{\rm exp}$ at $t=1$~d.}
-    \label{fig:rosseland_planck_ni}
-\end{figure*}
-
-\begin{figure*}[t]
-    \centering
-    \includegraphics[width=0.48\textwidth]{figs/sn1a_outer_rosseland_t1d.png}\hspace{0.02\textwidth}%
-    \includegraphics[width=0.48\textwidth]{figs/sn1a_outer_ratio_t1d.png}
-    \caption{SN~Ia outer layer: same quantities at $t=1$~d.}
-    \label{fig:rosseland_planck_sn1a_outer}
-\end{figure*}
-
-\begin{figure*}[t]
-    \centering
-    \includegraphics[width=0.48\textwidth]{figs/kilonova_rosseland_t1d.png}\hspace{0.02\textwidth}%
-    \includegraphics[width=0.48\textwidth]{figs/kilonova_ratio_t1d.png}
-    \caption{Kilonova mix ($X_{\rm lan}=0.121$): same quantities at $t=1$~d.}
-    \label{fig:rosseland_planck_kilonova}
-\end{figure*}
-
-\begin{figure*}[t]
-    \centering
-    \includegraphics[width=\textwidth]{figs/profile_colormap_dreff_compare.png}
-    \caption{SN~Ia $T_{\rm plasma}$ and $\kappa_R^{\rm exp}$ maps with diffusion /
-    photosphere surfaces overlaid.}
-    \label{fig:profile_colormap}
-\end{figure*}
-
-\section{Individual-Lanthanide Opacities and Ionization Features}
 \label{AppLanthanides}
 
-\begin{figure*}[t]
+\begin{figure}[t]
     \centering
-    \includegraphics[width=\textwidth]{figs/all_lanthanides_opacity.pdf}
-    \caption{All-lanthanide $\kappa_R$ and $\kappa_P$ vs $T$; documents
-    the $\sim1.2$~eV feature as database-wide for high-opacity lanthanides.}
-    \label{fig:all_lanthanides_opacity}
-\end{figure*}
+    \includegraphics[width=\columnwidth]{figs/kilonova_rosseland_t1d.png}
+    \caption{Rosseland expansion opacity as a function of temperature and density
+    for the kilonova mixture ($X_{\rm lan}=0.121$) at $t=1$~d.}
+    \label{fig:rosseland_planck_kilonova}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figs/kilonova_ratio_t1d.png}
+    \caption{Planck-to-Rosseland mean opacity ratio as a function of temperature
+    and density for the kilonova mixture ($X_{\rm lan}=0.121$) at $t=1$~d.}
+    \label{fig:planck_rosseland_ratio_kilonova}
+\end{figure}
+
 
 \end{document}
